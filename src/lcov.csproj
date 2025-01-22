@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>belin.lcov</AssemblyName>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutDir>../bin</OutDir>
+		<TargetFramework>net8.0</TargetFramework>
+		<VersionPrefix>1.0.0</VersionPrefix>
+	</PropertyGroup>
+</Project>
