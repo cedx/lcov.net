@@ -12,22 +12,22 @@ public class SourceFile(string path = "", FunctionCoverage? functions = null, Br
 	/// <summary>
 	/// The branch coverage.
 	/// </summary>
-	BranchCoverage? Branches { get; set; } = branches;
+	public BranchCoverage? Branches { get; set; } = branches;
 
 	/// <summary>
 	/// The function coverage.
 	/// </summary>
-	FunctionCoverage? Functions { get; set; } = functions;
+	public FunctionCoverage? Functions { get; set; } = functions;
 
 	/// <summary>
 	/// The line coverage.
 	/// </summary>
-	LineCoverage? Lines { get; set; } = lines;
+	public LineCoverage? Lines { get; set; } = lines;
 
 	/// <summary>
 	/// The path to the source file.
 	/// </summary>
-	string Path { get; set; } = path;
+	public string Path { get; set; } = path;
 
 	/// <summary>
 	/// Returns a string representation of this object.
