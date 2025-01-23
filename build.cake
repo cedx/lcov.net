@@ -1,12 +1,24 @@
-var debug = Argument("configuration", "Debug");
-var task = Argument("task", "default");
+using static System.IO.Path;
 
-// Builds the project.
-Task("build").Does(() => {
-	DotNetBuild("lcov.sln", new DotNetBuildSettings { Configuration = configuration });
+var release = HasArgument("r") || HasArgument("release");
+var target = Argument<string>("t", null) ?? Argument("task", "default");
+
+Task("build").Description("Builds the project.").Does(() => {
+	DotNetBuild("lcov.sln", new DotNetBuildSettings { Configuration = release ? "Release" : "Debug" });
 });
 
-// Deletes all generated files.
+Task("clean").Description("Deletes all generated files.").Does(() => {
+	var deleteDirectorySettings = new DeleteDirectorySettings { Recursive = true };
+	foreach (var dir in new[] { "bin", "src/obj", "test/obj" }) EnsureDirectoryDoesNotExist(dir, deleteDirectorySettings);
+	CleanDirectory("var", fileSystemInfo => GetRelativePath("var", fileSystemInfo.Path.FullPath) != ".gitkeep");
+});
 
-// Run the requested task.
-RunTarget(task);
+Task("format").Description("Formats the source code.").Does(() => {
+	DotNetFormat("lcov.sln");
+});
+
+Task("default").Description("The default task.")
+	.IsDependentOn("clean")
+	.IsDependentOn("build");
+
+RunTarget(target);
