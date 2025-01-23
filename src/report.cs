@@ -1,5 +1,6 @@
 namespace belin.lcov;
 
+using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 
 /// <summary>
@@ -25,7 +26,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	/// <param name="coverage">The coverage data.</param>
 	/// <returns>The resulting coverage report.</returns>
 	/// <exception cref="FormatException">A parsing error occurred.</exception>
-	public static Report? Parse(string coverage) {
+	public static Report Parse(string coverage) {
 		var offset = 0;
 		var report = new Report(string.Empty);
 		var sourceFile = new SourceFile();
@@ -48,6 +49,23 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 		}
 
 		return report.SourceFiles.Count > 0 ? report : throw new FormatException("The coverage data is empty or invalid.");
+	}
+
+	/// <summary>
+	/// Parses the specified coverage data in LCOV format.
+	/// </summary>
+	/// <param name="coverage">The coverage data.</param>
+	/// <param name="report">The resulting coverage report, or `null` if an error occurred.</param>
+	/// <returns>Value indicating whether the parsing was successfull.</returns>
+	public static bool TryParse(string coverage, [NotNullWhen(true)] out Report? report) {
+		try {
+			report = Parse(coverage);
+			return true;
+		}
+		catch {
+			report = null;
+			return false;
+		}
 	}
 
 	/// <summary>
