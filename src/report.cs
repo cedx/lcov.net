@@ -1,5 +1,7 @@
 namespace belin.lcov;
 
+using System.Text.RegularExpressions;
+
 /// <summary>
 /// Represents a trace file, that is a coverage report.
 /// </summary>
@@ -16,6 +18,37 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	/// The test name.
 	/// </summary>
 	public string TestName { get; set; } = testName;
+
+	/// <summary>
+	/// Parses the specified coverage data in LCOV format.
+	/// </summary>
+	/// <param name="coverage">The coverage data.</param>
+	/// <returns>The resulting coverage report.</returns>
+	/// <exception cref="FormatException">A parsing error occurred.</exception>
+	public static Report? Parse(string coverage) {
+		var offset = 0;
+		var report = new Report(string.Empty);
+		var sourceFile = new SourceFile();
+
+		foreach (var line in new Regex(@"\r?\n").Split(coverage)) {
+			offset++;
+			if (string.IsNullOrWhiteSpace(line)) continue;
+
+			var parts = line.Trim().Split(':');
+			if (parts.Length < 2 && parts[0] != Token.EndOfRecord) throw new FormatException($"Invalid token format at line #{offset}.");
+
+			var data = string.Join(':', parts[1..]).Split(',');
+			var token = parts[0];
+			switch (token) {
+				case var _ when token == Token.TestName: if (report.TestName.Length == 0) report.TestName = data[0]; break;
+				case var _ when token == Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
+
+				default: throw new FormatException($"Unknown token at line #{offset}.");
+			}
+		}
+
+		return report.SourceFiles.Count > 0 ? report : throw new FormatException("The coverage data is empty or invalid.");
+	}
 
 	/// <summary>
 	/// Returns a string representation of this object.
