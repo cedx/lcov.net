@@ -12,8 +12,8 @@ public record struct LineData(int LineNumber = 0, int ExecutionCount = 0, string
 	/// Returns a string representation of this object.
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
-	public override string ToString() {
+	public override readonly string ToString() {
 		var value = $"{Token.LineData}:{LineNumber},{ExecutionCount}";
-		return Checksum ? $"{value},{Checksum}" : value;
+		return Checksum.Length > 0 ? $"{value},{Checksum}" : value;
 	}
 }

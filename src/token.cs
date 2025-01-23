@@ -1,3 +1,5 @@
+namespace belin.lcov;
+
 /// <summary>
 /// Provides the list of tokens supported by the parser.
 /// </summary>

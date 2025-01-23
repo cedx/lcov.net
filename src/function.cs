@@ -13,7 +13,14 @@ public record struct FunctionData(string FunctionName = "", int LineNumber = 0, 
 	/// </summary>
 	/// <param name="asDefinition">Whether to return the function definition instead of its data.</param>
 	/// <returns>The string representation of this object.</returns>
-	public override string ToString(bool asDefinition = false) {
+	public override readonly string ToString() => ToString(false);
+
+	/// <summary>
+	/// Returns a string representation of this object.
+	/// </summary>
+	/// <param name="asDefinition">Whether to return the function definition instead of its data.</param>
+	/// <returns>The string representation of this object.</returns>
+	public readonly string ToString(bool asDefinition) {
 		var token = asDefinition ? Token.FunctionName : Token.FunctionData;
 		var count = asDefinition ? LineNumber : ExecutionCount;
 		return $"{token}:{count},{FunctionName}";
