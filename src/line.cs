@@ -30,8 +30,8 @@ public class LineCoverage(int found = 0, int hit = 0, IEnumerable<LineData>? dat
 	public override string ToString() {
 		return string.Join('\n', [
 			.. Data.Select(item => item.ToString()),
-			$"{Token.LinesFound}:#{Found}",
-			$"{Token.LinesHit}:#{Hit}"
+			$"{Token.LinesFound}:{Found}",
+			$"{Token.LinesHit}:{Hit}"
 		]);
 	}
 }

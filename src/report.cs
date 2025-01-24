@@ -36,7 +36,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 			if (string.IsNullOrWhiteSpace(line)) continue;
 
 			var parts = line.Trim().Split(':');
-			if (parts.Length < 2 && parts[0] != Token.EndOfRecord) throw new FormatException($"Invalid token format at line #{offset}.");
+			if (parts.Length < 2 && parts[0] != Token.EndOfRecord) throw new FormatException($"Invalid token format at line {offset}.");
 
 			var data = string.Join(':', parts[1..]).Split(',');
 			var token = parts[0];
@@ -44,7 +44,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 				case var _ when token == Token.TestName: if (report.TestName.Length == 0) report.TestName = data[0]; break;
 				case var _ when token == Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
 
-				default: throw new FormatException($"Unknown token at line #{offset}.");
+				default: throw new FormatException($"Unknown token at line {offset}.");
 			}
 		}
 

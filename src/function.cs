@@ -31,8 +31,8 @@ public class FunctionCoverage(int found = 0, int hit = 0, IEnumerable<FunctionDa
 		return string.Join('\n', [
 			.. Data.Select(item => item.ToString(asDefinition: true)),
 			.. Data.Select(item => item.ToString(asDefinition: false)),
-			$"{Token.FunctionsFound}:#{Found}",
-			$"{Token.FunctionsHit}:#{Hit}"
+			$"{Token.FunctionsFound}:{Found}",
+			$"{Token.FunctionsHit}:{Hit}"
 		]);
 	}
 }

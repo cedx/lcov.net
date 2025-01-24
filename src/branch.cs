@@ -30,8 +30,8 @@ public class BranchCoverage(int found = 0, int hit = 0, IEnumerable<BranchData>?
 	public override string ToString() {
 		return string.Join('\n', [
 			.. Data.Select(item => item.ToString()),
-			$"{Token.BranchesFound}:#{Found}",
-			$"{Token.BranchesHit}:#{Hit}"
+			$"{Token.BranchesFound}:{Found}",
+			$"{Token.BranchesHit}:{Hit}"
 		]);
 	}
 }
