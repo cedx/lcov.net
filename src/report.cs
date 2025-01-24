@@ -41,9 +41,55 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 			var data = string.Join(':', parts[1..]).Split(',');
 			var token = parts[0];
 			switch (token) {
-				case var _ when token == Token.TestName: if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0]; break;
-				case var _ when token == Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
+				case Token.TestName: if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0]; break;
+				case Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
 
+				case Token.BranchData:
+					if (data.Length < 4) throw new FormatException($"Invalid branch data at line #{offset}.");
+					sourceFile.Branches?.Data.Add(new BranchData {
+						BlockNumber = int.Parse(data[1]),
+						BranchNumber = int.Parse(data[2]),
+						LineNumber = int.Parse(data[0]),
+						Taken = data[3] == "-" ? 0 : int.Parse(data[3])
+					});
+					break;
+
+				case Token.FunctionData:
+					if (data.Length < 2) throw new FormatException($"Invalid function data at line #{offset}.");
+					if (sourceFile.Functions is not null) {
+						var items = sourceFile.Functions.Data;
+						for (var i = 0; i < items.Count; i++) items[i] = items[i] with { ExecutionCount = int.Parse(data[0]) };
+					}
+					break;
+
+				case Token.FunctionName:
+					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
+					sourceFile.Functions?.Data.Add(new FunctionData { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
+					break;
+
+				case Token.LineData:
+					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
+					sourceFile.Lines?.Data.Add(new LineData {
+						Checksum = data.Length >= 3 ? data[2] : "",
+						ExecutionCount = int.Parse(data[1]),
+						LineNumber = int.Parse(data[0])
+					});
+					break;
+
+				case Token.SourceFile:
+					sourceFile = new SourceFile(data[0]) {
+						Branches = new BranchCoverage(),
+						Functions = new FunctionCoverage(),
+						Lines = new LineCoverage()
+					};
+					break;
+
+				case Token.BranchesFound: if (sourceFile.Branches is not null) sourceFile.Branches.Found = int.Parse(data[0]); break;
+				case Token.BranchesHit: if (sourceFile.Branches is not null) sourceFile.Branches.Hit = int.Parse(data[0]); break;
+				case Token.FunctionsFound: if (sourceFile.Functions is not null) sourceFile.Functions.Found = int.Parse(data[0]); break;
+				case Token.FunctionsHit: if (sourceFile.Functions is not null) sourceFile.Functions.Hit = int.Parse(data[0]); break;
+				case Token.LinesFound: if (sourceFile.Lines is not null) sourceFile.Lines.Found = int.Parse(data[0]); break;
+				case Token.LinesHit: if (sourceFile.Lines is not null) sourceFile.Lines.Hit = int.Parse(data[0]); break;
 				default: throw new FormatException($"Unknown token at line {offset}.");
 			}
 		}
