@@ -25,6 +25,10 @@ Task("publish")
 	.IsDependentOn("default")
 	.DoesForEach(["tag", "push origin"], action => StartProcess("git", $"{action} v{version}"));
 
+Task("test")
+	.Description("Runs the test suite.")
+	.Does(() => DotNetTest());
+
 Task("version")
 	.Description("Updates the version number in the sources.")
 	.DoesForEach(GetFiles("*/*.csproj"), file => {
