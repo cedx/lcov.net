@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>belin.lcov</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>

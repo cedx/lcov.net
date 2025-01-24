@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>belin.lcov.test</AssemblyName>
+		<BaseOutputPath>obj</BaseOutputPath>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<OutDir>../bin</OutDir>
+		<RunSettingsFilePath>../.config/runsettings.xml</RunSettingsFilePath>
+		<SatelliteResourceLanguages>en</SatelliteResourceLanguages>
 		<TargetFramework>net8.0</TargetFramework>
 		<VersionPrefix>1.0.0</VersionPrefix>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting"/>
+		<Using Include="Microsoft.VisualStudio.TestTools.UnitTesting.Assert" Static="true"/>
 	</ItemGroup>
 
 	<ItemGroup>

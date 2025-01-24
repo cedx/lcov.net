@@ -3,4 +3,7 @@
 	<MSTest>
 		<Scope>MethodLevel</Scope>
 	</MSTest>
+	<RunConfiguration>
+		<ResultsDirectory>../var/test</ResultsDirectory>
+	</RunConfiguration>
 </RunSettings>
