@@ -74,8 +74,8 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() {
 		return string.Join('\n', [
-			..string.IsNullOrWhiteSpace(TestName) ? Array.Empty<string>() : [$"{Token.TestName}:{TestName}"],
-			..SourceFiles.Select(item => item.ToString())
+			.. string.IsNullOrWhiteSpace(TestName) ? Array.Empty<string>() : [$"{Token.TestName}:{TestName}"],
+			.. SourceFiles.Select(item => item.ToString())
 		]);
 	}
 }
