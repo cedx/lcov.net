@@ -50,6 +50,6 @@ public record struct LineData(int LineNumber = 0, int ExecutionCount = 0, string
 	/// <returns>The string representation of this object.</returns>
 	public override readonly string ToString() {
 		var value = $"{Token.LineData}:{LineNumber},{ExecutionCount}";
-		return Checksum.Length > 0 ? $"{value},{Checksum}" : value;
+		return string.IsNullOrWhiteSpace(Checksum) ? value : $"{value},{Checksum}";
 	}
 }

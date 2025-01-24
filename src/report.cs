@@ -41,7 +41,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 			var data = string.Join(':', parts[1..]).Split(',');
 			var token = parts[0];
 			switch (token) {
-				case var _ when token == Token.TestName: if (report.TestName.Length == 0) report.TestName = data[0]; break;
+				case var _ when token == Token.TestName: if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0]; break;
 				case var _ when token == Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
 
 				default: throw new FormatException($"Unknown token at line {offset}.");
@@ -74,7 +74,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() {
 		return string.Join('\n', [
-			..TestName.Length > 0 ? [$"{Token.TestName}:{TestName}"] : Array.Empty<string>(),
+			..string.IsNullOrWhiteSpace(TestName) ? Array.Empty<string>() : [$"{Token.TestName}:{TestName}"],
 			..SourceFiles.Select(item => item.ToString())
 		]);
 	}
