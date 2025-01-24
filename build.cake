@@ -1,3 +1,6 @@
+using static System.IO.File;
+using System.Text.RegularExpressions;
+
 var release = HasArgument("r") || HasArgument("release");
 var target = Argument<string>("t", null) ?? Argument("target", "default");
 var version = "1.0.0";
@@ -9,7 +12,7 @@ Task("build")
 Task("clean")
 	.Description("Deletes all generated files.")
 	.Does(() => EnsureDirectoryDoesNotExist("bin"))
-	.DoesForEach(GetDirectories("src/**/obj"), dir => EnsureDirectoryDoesNotExist(dir, new DeleteDirectorySettings { Recursive = true }))
+	.DoesForEach(GetDirectories("*/obj"), dir => EnsureDirectoryDoesNotExist(dir, new DeleteDirectorySettings { Recursive = true }))
 	.Does(() => CleanDirectory("var", fileSystemInfo => fileSystemInfo.Path.Segments[^1] != ".gitkeep"));
 
 Task("format")
@@ -22,9 +25,17 @@ Task("publish")
 	.IsDependentOn("default")
 	.DoesForEach(["tag", "push origin"], action => StartProcess("git", $"{action} v{version}"));
 
+Task("version")
+	.Description("Updates the version number in the sources.")
+	.DoesForEach(GetFiles("*/*.csproj"), file => {
+		var pattern = new Regex(@"<VersionPrefix>\d+(\.\d+){2}</VersionPrefix>");
+		WriteAllText(file.FullPath, pattern.Replace(ReadAllText(file.FullPath), $"<VersionPrefix>{version}</VersionPrefix>"));
+	});
+
 Task("default")
 	.Description("The default task.")
 	.IsDependentOn("clean")
+	.IsDependentOn("version")
 	.IsDependentOn("build");
 
 RunTarget(target);
