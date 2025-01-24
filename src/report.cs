@@ -29,7 +29,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	public static Report Parse(string coverage) {
 		var offset = 0;
 		var report = new Report(string.Empty);
-		var sourceFile = new SourceFile();
+		var sourceFile = new SourceFile(path: "");
 
 		foreach (var line in new Regex(@"\r?\n").Split(coverage)) {
 			offset++;
