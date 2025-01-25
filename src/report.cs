@@ -42,11 +42,12 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 			var token = parts[0];
 			switch (token) {
 				case Token.TestName: if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0]; break;
+				case Token.SourceFile: sourceFile = new(data[0]) { Branches = new(), Functions = new(), Lines = new() }; break;
 				case Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
 
 				case Token.BranchData:
 					if (data.Length < 4) throw new FormatException($"Invalid branch data at line #{offset}.");
-					sourceFile.Branches?.Data.Add(new BranchData {
+					sourceFile.Branches?.Data.Add(new() {
 						BlockNumber = int.Parse(data[1]),
 						BranchNumber = int.Parse(data[2]),
 						LineNumber = int.Parse(data[0]),
@@ -64,24 +65,16 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 
 				case Token.FunctionName:
 					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
-					sourceFile.Functions?.Data.Add(new FunctionData { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
+					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
 					break;
 
 				case Token.LineData:
 					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
-					sourceFile.Lines?.Data.Add(new LineData {
+					sourceFile.Lines?.Data.Add(new() {
 						Checksum = data.Length >= 3 ? data[2] : string.Empty,
 						ExecutionCount = int.Parse(data[1]),
 						LineNumber = int.Parse(data[0])
 					});
-					break;
-
-				case Token.SourceFile:
-					sourceFile = new SourceFile(data[0]) {
-						Branches = new BranchCoverage(),
-						Functions = new FunctionCoverage(),
-						Lines = new LineCoverage()
-					};
 					break;
 
 				case Token.BranchesFound: if (sourceFile.Branches is not null) sourceFile.Branches.Found = int.Parse(data[0]); break;

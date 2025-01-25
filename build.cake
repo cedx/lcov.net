@@ -7,12 +7,12 @@ var version = "1.0.0";
 
 Task("build")
 	.Description("Builds the project.")
-	.Does(() => DotNetBuild("lcov.sln", new DotNetBuildSettings { Configuration = release ? "Release" : "Debug" }));
+	.Does(() => DotNetBuild("lcov.sln", new() { Configuration = release ? "Release" : "Debug" }));
 
 Task("clean")
 	.Description("Deletes all generated files.")
 	.Does(() => EnsureDirectoryDoesNotExist("bin"))
-	.DoesForEach(GetDirectories("*/obj"), dir => EnsureDirectoryDoesNotExist(dir, new DeleteDirectorySettings { Recursive = true }))
+	.DoesForEach(GetDirectories("*/obj"), dir => EnsureDirectoryDoesNotExist(dir, new() { Recursive = true }))
 	.Does(() => CleanDirectory("var", fileSystemInfo => fileSystemInfo.Path.Segments[^1] != ".gitkeep"));
 
 Task("format")
