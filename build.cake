@@ -21,7 +21,7 @@ Task("format")
 
 Task("publish")
 	.Description("Publishes the package.")
-	.WithCriteria(release)
+	.WithCriteria(release, @"the ""Release"" configuration must be enabled")
 	.IsDependentOn("default")
 	.DoesForEach(["tag", "push origin"], action => StartProcess("git", $"{action} v{version}"));
 
