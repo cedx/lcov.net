@@ -29,7 +29,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	public static Report Parse(string coverage) {
 		var offset = 0;
 		var report = new Report(string.Empty);
-		var sourceFile = new SourceFile(path: "");
+		var sourceFile = new SourceFile(path: string.Empty);
 
 		foreach (var line in new Regex(@"\r?\n").Split(coverage)) {
 			offset++;
@@ -70,7 +70,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 				case Token.LineData:
 					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
 					sourceFile.Lines?.Data.Add(new LineData {
-						Checksum = data.Length >= 3 ? data[2] : "",
+						Checksum = data.Length >= 3 ? data[2] : string.Empty,
 						ExecutionCount = int.Parse(data[1]),
 						LineNumber = int.Parse(data[0])
 					});

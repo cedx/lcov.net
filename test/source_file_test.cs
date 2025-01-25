@@ -5,7 +5,7 @@ public sealed class SourceFileTest {
 
 	[TestMethod]
 	public void TestToString() {
-		var sourceFile = new SourceFile(path: "");
+		var sourceFile = new SourceFile(path: string.Empty);
 		AreEqual("SF:\nend_of_record", sourceFile.ToString());
 
 		sourceFile = new SourceFile("/home/cedx/lcov.cs") { Branches = new BranchCoverage(), Functions = new FunctionCoverage(), Lines = new LineCoverage() };
