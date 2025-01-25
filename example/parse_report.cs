@@ -1,7 +1,7 @@
+using Belin.Lcov;
 using System;
 using System.IO;
 using System.Text.Json;
-using Belin.Lcov;
 
 // Parses a LCOV report to coverage data.
 try {
