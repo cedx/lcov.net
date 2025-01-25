@@ -1,4 +1,4 @@
-namespace belin.lcov;
+namespace Belin.Lcov;
 
 /// <summary>
 /// Provides the coverage data of branches.

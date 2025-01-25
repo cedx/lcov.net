@@ -1,4 +1,4 @@
-namespace belin.lcov;
+namespace Belin.Lcov;
 
 [TestClass]
 public sealed class SourceFileTest {

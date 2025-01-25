@@ -1,4 +1,4 @@
-namespace belin.lcov;
+namespace Belin.Lcov;
 
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
