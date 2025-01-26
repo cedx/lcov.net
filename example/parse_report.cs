@@ -7,9 +7,10 @@ using System.Text.Json;
 try {
 	var report = Report.Parse(File.ReadAllText("/path/to/lcov.info"));
 	Console.WriteLine($"The coverage report contains {report.SourceFiles.Count} source files:");
-
-	var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase, WriteIndented = true };
-	Console.WriteLine(JsonSerializer.Serialize(report, options));
+	Console.WriteLine(JsonSerializer.Serialize(report, new JsonSerializerOptions {
+		PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+		WriteIndented = true
+	}));
 }
 catch (FormatException error) {
 	Console.WriteLine(error.Message);
