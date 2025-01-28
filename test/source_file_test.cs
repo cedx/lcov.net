@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 [TestClass]
 public sealed class SourceFileTest {
 
-	[TestMethod]
+	[TestMethod("ToString")]
 	public void TestToString() {
 		var sourceFile = new SourceFile(path: string.Empty);
 		AreEqual("SF:\nend_of_record", sourceFile.ToString());

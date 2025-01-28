@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 [TestClass]
 public sealed class FunctionCoverageTest {
 
-	[TestMethod]
+	[TestMethod("ToString")]
 	public void TestToString() {
 		var data = new FunctionData { ExecutionCount = 3, FunctionName = "main", LineNumber = 127 };
 		AreEqual("FNF:0\nFNH:0", new FunctionCoverage().ToString());
@@ -14,7 +14,7 @@ public sealed class FunctionCoverageTest {
 [TestClass]
 public sealed class FunctionDataTest {
 
-	[TestMethod]
+	[TestMethod("ToString")]
 	public void TestToString() {
 		var data = new FunctionData { ExecutionCount = 3, FunctionName = "main", LineNumber = 127 };
 		AreEqual("FN:0,", new FunctionData().ToString(asDefinition: true));

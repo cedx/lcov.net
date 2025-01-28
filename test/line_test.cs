@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 [TestClass]
 public sealed class LineCoverageTest {
 
-	[TestMethod]
+	[TestMethod("ToString")]
 	public void TestToString() {
 		var data = new LineData { ExecutionCount = 3, LineNumber = 127 };
 		AreEqual("LF:0\nLH:0", new LineCoverage().ToString());
@@ -14,7 +14,7 @@ public sealed class LineCoverageTest {
 [TestClass]
 public sealed class LineDataTest {
 
-	[TestMethod]
+	[TestMethod("ToString")]
 	public void TestToString() {
 		var data = new LineData { Checksum = "ed076287532e86365e841e92bfc50d8c", ExecutionCount = 3, LineNumber = 127 };
 		AreEqual("DA:0,0", new LineData().ToString());

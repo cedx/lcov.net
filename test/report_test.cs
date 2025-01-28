@@ -42,7 +42,7 @@ public sealed class ReportTest {
 		ThrowsException<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
-	[TestMethod]
+	[TestMethod("ToString")]
 	public void TestToString() {
 		var sourceFile = new SourceFile(path: string.Empty);
 		AreEqual(string.Empty, new Report(string.Empty).ToString());
