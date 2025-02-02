@@ -94,7 +94,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	/// Parses the specified coverage data in LCOV format.
 	/// </summary>
 	/// <param name="coverage">The coverage data.</param>
-	/// <param name="report">The resulting coverage report, or `null` if a parsing occurred.</param>
+	/// <param name="report">The resulting coverage report, or <see langword="null"/> if a parsing occurred.</param>
 	/// <returns>Value indicating whether the parsing was successfull.</returns>
 	public static bool TryParse(string coverage, [NotNullWhen(true)] out Report? report) {
 		try {
