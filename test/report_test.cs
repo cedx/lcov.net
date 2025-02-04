@@ -9,7 +9,7 @@ public sealed class ReportTest {
 	private static string coverage = string.Empty;
 
 	[ClassInitialize]
-	public static void ClassInitialize(TestContext testContext) {
+	public static void ClassInitialize(TestContext _) {
 		coverage = File.ReadAllText("../res/lcov.info");
 	}
 
