@@ -59,7 +59,10 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 					if (data.Length < 2) throw new FormatException($"Invalid function data at line #{offset}.");
 					if (sourceFile.Functions is not null) {
 						var items = sourceFile.Functions.Data;
-						for (var i = 0; i < items.Count; i++) items[i] = items[i] with { ExecutionCount = int.Parse(data[0]) };
+						for (var i = 0; i < items.Count; i++) if (items[i].FunctionName == data[1]) {
+							items[i] = items[i] with { ExecutionCount = int.Parse(data[0]) };
+							break;
+						}
 					}
 					break;
 
