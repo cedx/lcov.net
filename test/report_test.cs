@@ -1,5 +1,8 @@
 namespace Belin.Lcov;
 
+/// <summary>
+/// Tests the features of the <see cref="Report"/> class.
+/// </summary>
 [TestClass]
 public sealed class ReportTest {
 
@@ -8,6 +11,10 @@ public sealed class ReportTest {
 	/// </summary>
 	private static string coverage = string.Empty;
 
+	/// <summary>
+	/// Method invoked before the first test is run.
+	/// </summary>
+	/// <param name="_">The test context.</param>
 	[ClassInitialize]
 	public static void ClassInitialize(TestContext _) {
 		coverage = File.ReadAllText("../res/lcov.info");

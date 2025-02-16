@@ -1,5 +1,8 @@
 namespace Belin.Lcov;
 
+/// <summary>
+/// Tests the features of the <see cref="SourceFile"/> class.
+/// </summary>
 [TestClass]
 public sealed class SourceFileTest {
 

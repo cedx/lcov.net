@@ -1,5 +1,8 @@
 namespace Belin.Lcov;
 
+/// <summary>
+/// Tests the features of the <see cref="BranchCoverage"/> class.
+/// </summary>
 [TestClass]
 public sealed class BranchCoverageTest {
 
@@ -11,6 +14,9 @@ public sealed class BranchCoverageTest {
 	}
 }
 
+/// <summary>
+/// Tests the features of the <see cref="BranchData"/> class.
+/// </summary>
 [TestClass]
 public sealed class BranchDataTest {
 
