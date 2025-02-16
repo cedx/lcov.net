@@ -29,6 +29,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{7C65D0F9-0D8
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{7325B354-11FB-415C-BE04-CCBFF984F0F6}"
+	ProjectSection(SolutionItems) = preProject
+		res\lcov.info = res\lcov.info
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{38FB0C20-0228-4AE0-AC45-DB8DF64631A0}"
+	ProjectSection(SolutionItems) = preProject
+		example\format_report.cs = example\format_report.cs
+		example\parse_report.cs = example\parse_report.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
