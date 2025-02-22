@@ -9,10 +9,12 @@ public sealed class ReportTest {
 	/// <summary>
 	/// The test fixture.
 	/// </summary>
-	private static string coverage = string.Empty;
+	private readonly string coverage;
 
-	[ClassInitialize]
-	public static void ClassInitialize(TestContext _) {
+	/// <summary>
+	/// Creates a new test.
+	/// </summary>
+	public ReportTest() {
 		coverage = File.ReadAllText("../res/lcov.info");
 	}
 
