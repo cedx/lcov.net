@@ -13,5 +13,5 @@ try {
 	}));
 }
 catch (FormatException error) {
-	Console.WriteLine(error.Message);
+	Console.Error.WriteLine(error.Message);
 }
