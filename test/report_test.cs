@@ -44,7 +44,7 @@ public sealed class ReportTest {
 		AreEqual(9, lines.Data.Count);
 		AreEqual("5kX7OTfHFcjnS98fjeVqNA", lines.Data[0].Checksum);
 
-		ThrowsException<FormatException>(() => Report.Parse("TN:Example"));
+		ThrowsExactly<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
 	[TestMethod("ToString")]
