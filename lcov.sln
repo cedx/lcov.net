@@ -6,41 +6,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lcov", "src\lcov.csproj", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lcov.tests", "test\lcov.tests.csproj", "{7ED23B7A-9EC2-48A0-AB8E-F292CAFFE89B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
-	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
-		.gitattributes = .gitattributes
-		.gitignore = .gitignore
-		.runsettings = .runsettings
-		.config\dotnet-tools.json = .config\dotnet-tools.json
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{7BD015C6-57A9-467E-9C99-B3373BF1E0E1}"
-	ProjectSection(SolutionItems) = preProject
-		build.cake = build.cake
-		cake.config = cake.config
-		.github\workflows\ci.yaml = .github\workflows\ci.yaml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{7C65D0F9-0D88-498B-84EE-DD0B8D83F90A}"
-	ProjectSection(SolutionItems) = preProject
-		AUTHORS.txt = AUTHORS.txt
-		CHANGELOG.md = CHANGELOG.md
-		LICENSE.md = LICENSE.md
-		README.md = README.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "res", "res", "{7325B354-11FB-415C-BE04-CCBFF984F0F6}"
-	ProjectSection(SolutionItems) = preProject
-		res\lcov.info = res\lcov.info
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "example", "example", "{38FB0C20-0228-4AE0-AC45-DB8DF64631A0}"
-	ProjectSection(SolutionItems) = preProject
-		example\format_report.cs = example\format_report.cs
-		example\parse_report.cs = example\parse_report.cs
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,8 +23,5 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4278492A-4AEE-4A7F-991E-86F008FEA4BE}
 	EndGlobalSection
 EndGlobal
