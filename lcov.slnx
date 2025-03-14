@@ -1,0 +1,4 @@
+<Solution>
+	<Project Path="src/lcov.csproj" />
+	<Project Path="test/lcov.tests.csproj" />
+</Solution>

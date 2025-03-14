@@ -17,7 +17,7 @@ Task("clean")
 
 Task("format")
 	.Description("Formats the source code.")
-	.Does(() => DotNetFormat("lcov.sln"));
+	.Does(() => DotNetFormat("lcov.slnx"));
 
 Task("publish")
 	.Description("Publishes the package.")
