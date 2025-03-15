@@ -6,7 +6,7 @@ namespace Belin.Lcov;
 /// <param name="found">The number of functions found.</param>
 /// <param name="hit">The number of functions hit.</param>
 /// <param name="data">The coverage data.</param>
-public class FunctionCoverage(int found = 0, int hit = 0, IEnumerable<FunctionData>? data = null) {
+public sealed class FunctionCoverage(int found = 0, int hit = 0, IEnumerable<FunctionData>? data = null) {
 
 	/// <summary>
 	/// The coverage data.
@@ -43,7 +43,7 @@ public class FunctionCoverage(int found = 0, int hit = 0, IEnumerable<FunctionDa
 /// <param name="FunctionName">The function name.</param>
 /// <param name="LineNumber">The line number of the function start.</param>
 /// <param name="ExecutionCount">The execution count.</param>
-public record FunctionData(string FunctionName = "", int LineNumber = 0, int ExecutionCount = 0) {
+public sealed record FunctionData(string FunctionName = "", int LineNumber = 0, int ExecutionCount = 0) {
 
 	/// <summary>
 	/// Returns a string representation of this object.

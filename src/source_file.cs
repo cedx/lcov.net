@@ -7,7 +7,7 @@ namespace Belin.Lcov;
 /// <param name="functions">The function coverage.</param>
 /// <param name="branches">The branch coverage.</param>
 /// <param name="lines">The line coverage.</param>
-public class SourceFile(string path, FunctionCoverage? functions = null, BranchCoverage? branches = null, LineCoverage? lines = null) {
+public sealed class SourceFile(string path, FunctionCoverage? functions = null, BranchCoverage? branches = null, LineCoverage? lines = null) {
 
 	/// <summary>
 	/// The branch coverage.

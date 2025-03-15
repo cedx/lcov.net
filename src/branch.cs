@@ -6,7 +6,7 @@ namespace Belin.Lcov;
 /// <param name="found">The number of branches found.</param>
 /// <param name="hit">The number of branches hit.</param>
 /// <param name="data">The coverage data.</param>
-public class BranchCoverage(int found = 0, int hit = 0, IEnumerable<BranchData>? data = null) {
+public sealed class BranchCoverage(int found = 0, int hit = 0, IEnumerable<BranchData>? data = null) {
 
 	/// <summary>
 	/// The coverage data.
@@ -43,7 +43,7 @@ public class BranchCoverage(int found = 0, int hit = 0, IEnumerable<BranchData>?
 /// <param name="BlockNumber">The block number.</param>
 /// <param name="BranchNumber">The branch number.</param>
 /// <param name="Taken">A number indicating how often this branch was taken.</param>
-public record BranchData(int LineNumber = 0, int BlockNumber = 0, int BranchNumber = 0, int Taken = 0) {
+public sealed record BranchData(int LineNumber = 0, int BlockNumber = 0, int BranchNumber = 0, int Taken = 0) {
 
 	/// <summary>
 	/// Returns a string representation of this object.

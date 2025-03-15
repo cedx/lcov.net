@@ -6,7 +6,7 @@ namespace Belin.Lcov;
 /// <param name="found">The number of lines found.</param>
 /// <param name="hit">The number of lines hit.</param>
 /// <param name="data">The coverage data.</param>
-public class LineCoverage(int found = 0, int hit = 0, IEnumerable<LineData>? data = null) {
+public sealed class LineCoverage(int found = 0, int hit = 0, IEnumerable<LineData>? data = null) {
 
 	/// <summary>
 	/// The coverage data.
@@ -42,7 +42,7 @@ public class LineCoverage(int found = 0, int hit = 0, IEnumerable<LineData>? dat
 /// <param name="LineNumber">The line number.</param>
 /// <param name="ExecutionCount">The execution count.</param>
 /// <param name="Checksum">The data checksum.</param>
-public record LineData(int LineNumber = 0, int ExecutionCount = 0, string Checksum = "") {
+public sealed record LineData(int LineNumber = 0, int ExecutionCount = 0, string Checksum = "") {
 
 	/// <summary>
 	/// Returns a string representation of this object.
