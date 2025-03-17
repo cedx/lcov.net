@@ -27,14 +27,12 @@ public sealed class FunctionCoverage(int found = 0, int hit = 0, IEnumerable<Fun
 	/// Returns a string representation of this object.
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
-	public override string ToString() {
-		return string.Join('\n', [
-			.. Data.Select(item => item.ToString(asDefinition: true)),
-			.. Data.Select(item => item.ToString(asDefinition: false)),
-			$"{Token.FunctionsFound}:{Found}",
-			$"{Token.FunctionsHit}:{Hit}"
-		]);
-	}
+	public override string ToString() => string.Join('\n', [
+		.. Data.Select(item => item.ToString(asDefinition: true)),
+		.. Data.Select(item => item.ToString(asDefinition: false)),
+		$"{Token.FunctionsFound}:{Found}",
+		$"{Token.FunctionsHit}:{Hit}"
+	]);
 }
 
 /// <summary>

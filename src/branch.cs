@@ -27,13 +27,11 @@ public sealed class BranchCoverage(int found = 0, int hit = 0, IEnumerable<Branc
 	/// Returns a string representation of this object.
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
-	public override string ToString() {
-		return string.Join('\n', [
-			.. Data.Select(item => item.ToString()),
-			$"{Token.BranchesFound}:{Found}",
-			$"{Token.BranchesHit}:{Hit}"
-		]);
-	}
+	public override string ToString() => string.Join('\n', [
+		.. Data.Select(item => item.ToString()),
+		$"{Token.BranchesFound}:{Found}",
+		$"{Token.BranchesHit}:{Hit}"
+	]);
 }
 
 /// <summary>
