@@ -15,7 +15,7 @@ public sealed class ReportTest {
 	/// Creates a new test.
 	/// </summary>
 	public ReportTest() {
-		coverage = File.ReadAllText("../res/lcov.info");
+		coverage = File.ReadAllText(Path.Join(AppContext.BaseDirectory, "../res/lcov.info"));
 	}
 
 	[TestMethod]
