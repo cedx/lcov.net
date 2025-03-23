@@ -10,18 +10,23 @@
 *.html text diff=html
 *.http text
 *.info text
+*.ini text
+*.iss text
 *.js text
 *.json text
 *.md text diff=markdown
 *.ps1 text
+*.scss text diff=css
 *.slnx text
 *.sql text
 *.svg text
 *.ts text
 *.txt text
+*.xml text
 *.yaml text
 *.yml text
 
+*.gif binary
 *.ico binary
 *.jpg binary
 *.pdf binary
