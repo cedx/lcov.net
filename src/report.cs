@@ -80,12 +80,12 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 					});
 					break;
 
-				case Token.BranchesFound: if (sourceFile.Branches is not null) sourceFile.Branches.Found = int.Parse(data[0]); break;
-				case Token.BranchesHit: if (sourceFile.Branches is not null) sourceFile.Branches.Hit = int.Parse(data[0]); break;
-				case Token.FunctionsFound: if (sourceFile.Functions is not null) sourceFile.Functions.Found = int.Parse(data[0]); break;
-				case Token.FunctionsHit: if (sourceFile.Functions is not null) sourceFile.Functions.Hit = int.Parse(data[0]); break;
-				case Token.LinesFound: if (sourceFile.Lines is not null) sourceFile.Lines.Found = int.Parse(data[0]); break;
-				case Token.LinesHit: if (sourceFile.Lines is not null) sourceFile.Lines.Hit = int.Parse(data[0]); break;
+				case Token.BranchesFound when sourceFile.Branches is not null: sourceFile.Branches.Found = int.Parse(data[0]); break;
+				case Token.BranchesHit when sourceFile.Branches is not null: sourceFile.Branches.Hit = int.Parse(data[0]); break;
+				case Token.FunctionsFound when sourceFile.Functions is not null: sourceFile.Functions.Found = int.Parse(data[0]); break;
+				case Token.FunctionsHit when sourceFile.Functions is not null: sourceFile.Functions.Hit = int.Parse(data[0]); break;
+				case Token.LinesFound when sourceFile.Lines is not null: sourceFile.Lines.Found = int.Parse(data[0]); break;
+				case Token.LinesHit when sourceFile.Lines is not null: sourceFile.Lines.Hit = int.Parse(data[0]); break;
 				default: throw new FormatException($"Unknown token at line {offset}.");
 			}
 		}
