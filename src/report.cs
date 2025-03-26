@@ -31,7 +31,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 		var report = new Report(string.Empty);
 		var sourceFile = new SourceFile(path: string.Empty);
 
-		foreach (var line in new Regex(@"\r?\n").Split(coverage)) {
+		foreach (var line in Regex.Split(coverage, @"\r?\n")) {
 			offset++;
 			if (string.IsNullOrWhiteSpace(line)) continue;
 
