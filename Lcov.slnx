@@ -17,8 +17,8 @@
 		<File Path="README.md" />
 	</Folder>
 	<Folder Name="/example/">
-		<File Path="example/format_report.cs" />
-		<File Path="example/parse_report.cs" />
+		<File Path="example/FormatReport.cs" />
+		<File Path="example/ParseReport.cs" />
 	</Folder>
 	<Folder Name="/res/">
 		<File Path="res/lcov.info" />
