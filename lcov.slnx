@@ -23,8 +23,8 @@
 	<Folder Name="/res/">
 		<File Path="res/lcov.info" />
 	</Folder>
-	<Project Path="src/lcov.csproj" />
-	<Project Path="test/lcov.tests.csproj">
+	<Project Path="src/Lcov.csproj" />
+	<Project Path="test/Lcov.Tests.csproj">
 		<Build Solution="Release|*" Project="false" />
 	</Project>
 </Solution>

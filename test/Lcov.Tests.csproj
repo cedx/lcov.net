@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="../src/lcov.csproj" />
+		<ProjectReference Include="../src/Lcov.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
