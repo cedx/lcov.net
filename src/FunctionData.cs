@@ -21,7 +21,7 @@ public sealed record FunctionData(string FunctionName = "", int LineNumber = 0, 
 	/// <param name="asDefinition">Whether to return the function definition instead of its data.</param>
 	/// <returns>The string representation of this object.</returns>
 	public string ToString(bool asDefinition) {
-		var token = asDefinition ? Token.FunctionName : Token.FunctionData;
+		var token = asDefinition ? Tokens.FunctionName : Tokens.FunctionData;
 		var count = asDefinition ? LineNumber : ExecutionCount;
 		return $"{token}:{count},{FunctionName}";
 	}

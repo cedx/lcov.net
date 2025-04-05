@@ -29,7 +29,7 @@ public sealed class LineCoverage(int found = 0, int hit = 0, IEnumerable<LineDat
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() => string.Join('\n', [
 		.. Data.Select(item => item.ToString()),
-		$"{Token.LinesFound}:{Found}",
-		$"{Token.LinesHit}:{Hit}"
+		$"{Tokens.LinesFound}:{Found}",
+		$"{Tokens.LinesHit}:{Hit}"
 	]);
 }

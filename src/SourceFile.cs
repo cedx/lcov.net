@@ -34,11 +34,11 @@ public sealed class SourceFile(string path, FunctionCoverage? functions = null, 
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() {
-		List<string> output = [$"{Token.SourceFile}:{Path}"];
+		List<string> output = [$"{Tokens.SourceFile}:{Path}"];
 		if (Functions is not null) output.Add(Functions.ToString());
 		if (Branches is not null) output.Add(Branches.ToString());
 		if (Lines is not null) output.Add(Lines.ToString());
-		output.Add(Token.EndOfRecord);
+		output.Add(Tokens.EndOfRecord);
 		return string.Join('\n', output);
 	}
 }

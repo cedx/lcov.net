@@ -3,7 +3,7 @@ namespace Belin.Lcov;
 /// <summary>
 /// Provides the list of tokens supported by the parser.
 /// </summary>
-public static class Token {
+public static class Tokens {
 
 	/// <summary>
 	/// The coverage data of a branch.

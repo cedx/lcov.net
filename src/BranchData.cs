@@ -14,7 +14,7 @@ public sealed record BranchData(int LineNumber = 0, int BlockNumber = 0, int Bra
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() {
-		var value = $"{Token.BranchData}:{LineNumber},{BlockNumber},{BranchNumber}";
+		var value = $"{Tokens.BranchData}:{LineNumber},{BlockNumber},{BranchNumber}";
 		return Taken > 0 ? $"{value},{Taken}" : $"{value},-";
 	}
 }

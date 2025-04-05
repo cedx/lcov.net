@@ -13,7 +13,7 @@ public sealed record LineData(int LineNumber = 0, int ExecutionCount = 0, string
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() {
-		var value = $"{Token.LineData}:{LineNumber},{ExecutionCount}";
+		var value = $"{Tokens.LineData}:{LineNumber},{ExecutionCount}";
 		return string.IsNullOrWhiteSpace(Checksum) ? value : $"{value},{Checksum}";
 	}
 }

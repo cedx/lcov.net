@@ -36,16 +36,16 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 			if (string.IsNullOrWhiteSpace(line)) continue;
 
 			var parts = line.Trim().Split(':');
-			if (parts.Length < 2 && parts[0] != Token.EndOfRecord) throw new FormatException($"Invalid token format at line {offset}.");
+			if (parts.Length < 2 && parts[0] != Tokens.EndOfRecord) throw new FormatException($"Invalid token format at line {offset}.");
 
 			var data = string.Join(':', parts[1..]).Split(',');
 			var token = parts[0];
 			switch (token) {
-				case Token.TestName: if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0]; break;
-				case Token.SourceFile: sourceFile = new(data[0]) { Branches = new(), Functions = new(), Lines = new() }; break;
-				case Token.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
+				case Tokens.TestName: if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0]; break;
+				case Tokens.SourceFile: sourceFile = new(data[0]) { Branches = new(), Functions = new(), Lines = new() }; break;
+				case Tokens.EndOfRecord: report.SourceFiles.Add(sourceFile); break;
 
-				case Token.BranchData:
+				case Tokens.BranchData:
 					if (data.Length < 4) throw new FormatException($"Invalid branch data at line #{offset}.");
 					sourceFile.Branches?.Data.Add(new() {
 						BlockNumber = int.Parse(data[1]),
@@ -55,7 +55,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 					});
 					break;
 
-				case Token.FunctionData:
+				case Tokens.FunctionData:
 					if (data.Length < 2) throw new FormatException($"Invalid function data at line #{offset}.");
 					if (sourceFile.Functions is not null) {
 						var items = sourceFile.Functions.Data;
@@ -66,12 +66,12 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 					}
 					break;
 
-				case Token.FunctionName:
+				case Tokens.FunctionName:
 					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
 					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
 					break;
 
-				case Token.LineData:
+				case Tokens.LineData:
 					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
 					sourceFile.Lines?.Data.Add(new() {
 						Checksum = data.Length >= 3 ? data[2] : string.Empty,
@@ -80,12 +80,12 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 					});
 					break;
 
-				case Token.BranchesFound when sourceFile.Branches is not null: sourceFile.Branches.Found = int.Parse(data[0]); break;
-				case Token.BranchesHit when sourceFile.Branches is not null: sourceFile.Branches.Hit = int.Parse(data[0]); break;
-				case Token.FunctionsFound when sourceFile.Functions is not null: sourceFile.Functions.Found = int.Parse(data[0]); break;
-				case Token.FunctionsHit when sourceFile.Functions is not null: sourceFile.Functions.Hit = int.Parse(data[0]); break;
-				case Token.LinesFound when sourceFile.Lines is not null: sourceFile.Lines.Found = int.Parse(data[0]); break;
-				case Token.LinesHit when sourceFile.Lines is not null: sourceFile.Lines.Hit = int.Parse(data[0]); break;
+				case Tokens.BranchesFound when sourceFile.Branches is not null: sourceFile.Branches.Found = int.Parse(data[0]); break;
+				case Tokens.BranchesHit when sourceFile.Branches is not null: sourceFile.Branches.Hit = int.Parse(data[0]); break;
+				case Tokens.FunctionsFound when sourceFile.Functions is not null: sourceFile.Functions.Found = int.Parse(data[0]); break;
+				case Tokens.FunctionsHit when sourceFile.Functions is not null: sourceFile.Functions.Hit = int.Parse(data[0]); break;
+				case Tokens.LinesFound when sourceFile.Lines is not null: sourceFile.Lines.Found = int.Parse(data[0]); break;
+				case Tokens.LinesHit when sourceFile.Lines is not null: sourceFile.Lines.Hit = int.Parse(data[0]); break;
 				default: throw new FormatException($"Unknown token at line {offset}.");
 			}
 		}
@@ -115,7 +115,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() => string.Join('\n', [
-		.. string.IsNullOrWhiteSpace(TestName) ? Array.Empty<string>() : [$"{Token.TestName}:{TestName}"],
+		.. string.IsNullOrWhiteSpace(TestName) ? Array.Empty<string>() : [$"{Tokens.TestName}:{TestName}"],
 		.. SourceFiles.Select(item => item.ToString())
 	]);
 }
