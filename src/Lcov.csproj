@@ -12,7 +12,7 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>coverage;formatter;lcov;parser;test;writer</PackageTags>
-		<RepositoryUrl>https://github.com/cedx/lcov.cs.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/cedx/lcov.net.git</RepositoryUrl>
 	</PropertyGroup>
 
 	<PropertyGroup>

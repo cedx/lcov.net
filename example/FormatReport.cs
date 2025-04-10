@@ -7,7 +7,7 @@ var lineData = new[] {
 	new LineData { LineNumber = 7, ExecutionCount = 2, Checksum = "yGMB6FhEEAd8OyASe3Ni1w" }
 };
 
-var sourceFile = new SourceFile("/home/cedx/lcov.cs/fixture.cs") {
+var sourceFile = new SourceFile("/home/cedx/lcov.net/fixture.cs") {
 	Functions = new FunctionCoverage { Found = 1, Hit = 1 },
 	Lines = new LineCoverage { Found = 2, Hit = 2, Data = lineData }
 };

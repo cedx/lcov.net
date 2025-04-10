@@ -21,9 +21,9 @@ public sealed class ReportTest {
 	public void Parse() {
 		var report = Report.Parse(coverage);
 		AreEqual(3, report.SourceFiles.Count);
-		AreEqual("/home/cedx/lcov.cs/fixture.cs", report.SourceFiles[0].Path);
-		AreEqual("/home/cedx/lcov.cs/func1.cs", report.SourceFiles[1].Path);
-		AreEqual("/home/cedx/lcov.cs/func2.cs", report.SourceFiles[2].Path);
+		AreEqual("/home/cedx/lcov.net/fixture.cs", report.SourceFiles[0].Path);
+		AreEqual("/home/cedx/lcov.net/func1.cs", report.SourceFiles[1].Path);
+		AreEqual("/home/cedx/lcov.net/func2.cs", report.SourceFiles[2].Path);
 
 		var branches = report.SourceFiles[1].Branches!;
 		AreEqual(4, branches.Found);
