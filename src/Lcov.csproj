@@ -9,10 +9,12 @@
 
 	<PropertyGroup>
 		<Authors>CedX</Authors>
+		<IncludeSymbols>true</IncludeSymbols>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageTags>coverage;formatter;lcov;parser;test;writer</PackageTags>
 		<RepositoryUrl>https://github.com/cedx/lcov.net.git</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 	<PropertyGroup>
