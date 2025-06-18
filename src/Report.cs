@@ -8,7 +8,14 @@ using System.Text.RegularExpressions;
 /// </summary>
 /// <param name="testName">The test name.</param>
 /// <param name="sourceFiles">The source file list.</param>
-public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null) {
+public partial class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null) {
+
+	/// <summary>
+	/// Gets the regular expression used to split the lines.
+	/// </summary>
+	/// <returns>The regular expression used to split the lines.</returns>
+	[GeneratedRegex(@"\r?\n")]
+	private static partial Regex NewLinePattern();
 
 	/// <summary>
 	/// The source file list.
@@ -31,7 +38,7 @@ public class Report(string testName, IEnumerable<SourceFile>? sourceFiles = null
 		var report = new Report(string.Empty);
 		var sourceFile = new SourceFile(path: string.Empty);
 
-		foreach (var line in Regex.Split(coverage, @"\r?\n")) {
+		foreach (var line in NewLinePattern().Split(coverage)) {
 			offset++;
 			if (string.IsNullOrWhiteSpace(line)) continue;
 
