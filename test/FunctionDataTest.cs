@@ -1,7 +1,7 @@
 namespace Belin.Lcov;
 
 /// <summary>
-/// Tests the features of the <see cref="FunctionCoverage"/> class.
+/// Tests the features of the <see cref="FunctionData"/> class.
 /// </summary>
 [TestClass]
 public sealed class FunctionDataTest {
