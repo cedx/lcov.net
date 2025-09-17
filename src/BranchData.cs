@@ -7,7 +7,7 @@ namespace Belin.Lcov;
 /// <param name="BlockNumber">The block number.</param>
 /// <param name="BranchNumber">The branch number.</param>
 /// <param name="Taken">A number indicating how often this branch was taken.</param>
-public sealed record BranchData(int LineNumber = 0, int BlockNumber = 0, int BranchNumber = 0, int Taken = 0) {
+public sealed record class BranchData(int LineNumber = 0, int BlockNumber = 0, int BranchNumber = 0, int Taken = 0) {
 
 	/// <summary>
 	/// Returns a string representation of this object.
