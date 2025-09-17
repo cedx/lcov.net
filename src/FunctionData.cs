@@ -6,7 +6,7 @@ namespace Belin.Lcov;
 /// <param name="FunctionName">The function name.</param>
 /// <param name="LineNumber">The line number of the function start.</param>
 /// <param name="ExecutionCount">The execution count.</param>
-public sealed record class FunctionData(string FunctionName = "", int LineNumber = 0, int ExecutionCount = 0) {
+public sealed record FunctionData(string FunctionName = "", int LineNumber = 0, int ExecutionCount = 0) {
 
 	/// <summary>
 	/// Returns a string representation of this object.
