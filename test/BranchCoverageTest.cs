@@ -1,12 +1,14 @@
 namespace Belin.Lcov;
 
+using System.ComponentModel;
+
 /// <summary>
 /// Tests the features of the <see cref="BranchCoverage"/> class.
 /// </summary>
 [TestClass]
 public sealed class BranchCoverageTest {
 
-	[TestMethod("ToString")]
+	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
 		var data = new BranchData { BlockNumber = 3, BranchNumber = 2, LineNumber = 127, Taken = 1 };
 		AreEqual("BRF:0\nBRH:0", new BranchCoverage().ToString());

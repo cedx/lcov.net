@@ -1,12 +1,14 @@
 namespace Belin.Lcov;
 
+using System.ComponentModel;
+
 /// <summary>
 /// Tests the features of the <see cref="FunctionCoverage"/> class.
 /// </summary>
 [TestClass]
 public sealed class FunctionCoverageTest {
 
-	[TestMethod("ToString")]
+	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
 		var data = new FunctionData { ExecutionCount = 3, FunctionName = "main", LineNumber = 127 };
 		AreEqual("FNF:0\nFNH:0", new FunctionCoverage().ToString());

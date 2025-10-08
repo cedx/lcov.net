@@ -1,5 +1,7 @@
 namespace Belin.Lcov;
 
+using System.ComponentModel;
+
 /// <summary>
 /// Tests the features of the <see cref="Report"/> class.
 /// </summary>
@@ -46,7 +48,7 @@ public sealed class ReportTest {
 		Throws<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
-	[TestMethod("ToString")]
+	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
 		var sourceFile = new SourceFile(path: string.Empty);
 		AreEqual(string.Empty, new Report(string.Empty).ToString());
