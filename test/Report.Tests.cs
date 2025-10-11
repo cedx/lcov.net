@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="Report"/> class.
 /// </summary>
 [TestClass]
-public sealed class ReportTest {
+public sealed class ReportTests {
 
 	/// <summary>
 	/// The test fixture.

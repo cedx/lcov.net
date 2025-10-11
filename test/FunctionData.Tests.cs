@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="FunctionData"/> class.
 /// </summary>
 [TestClass]
-public sealed class FunctionDataTest {
+public sealed class FunctionDataTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {

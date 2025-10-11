@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="BranchCoverage"/> class.
 /// </summary>
 [TestClass]
-public sealed class BranchCoverageTest {
+public sealed class BranchCoverageTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {

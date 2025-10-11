@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="BranchData"/> class.
 /// </summary>
 [TestClass]
-public sealed class BranchDataTest {
+public sealed class BranchDataTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {

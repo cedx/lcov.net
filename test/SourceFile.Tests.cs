@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="SourceFile"/> class.
 /// </summary>
 [TestClass]
-public sealed class SourceFileTest {
+public sealed class SourceFileTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {

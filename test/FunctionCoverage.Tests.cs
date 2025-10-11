@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="FunctionCoverage"/> class.
 /// </summary>
 [TestClass]
-public sealed class FunctionCoverageTest {
+public sealed class FunctionCoverageTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {

@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="LineCoverage"/> class.
 /// </summary>
 [TestClass]
-public sealed class LineCoverageTest {
+public sealed class LineCoverageTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {

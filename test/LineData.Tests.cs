@@ -6,7 +6,7 @@ using System.ComponentModel;
 /// Tests the features of the <see cref="LineData"/> class.
 /// </summary>
 [TestClass]
-public sealed class LineDataTest {
+public sealed class LineDataTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
