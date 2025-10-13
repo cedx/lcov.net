@@ -3,25 +3,22 @@ namespace Belin.Lcov;
 /// <summary>
 /// Provides the coverage data of branches.
 /// </summary>
-/// <param name="found">The number of branches found.</param>
-/// <param name="hit">The number of branches hit.</param>
-/// <param name="data">The coverage data.</param>
-public sealed class BranchCoverage(int found = 0, int hit = 0, IEnumerable<BranchData>? data = null) {
+public sealed class BranchCoverage {
 
 	/// <summary>
 	/// The coverage data.
 	/// </summary>
-	public IList<BranchData> Data { get; set; } = [.. data ?? []];
+	public IList<BranchData> Data { get; set; } = [];
 
 	/// <summary>
 	/// The number of branches found.
 	/// </summary>
-	public int Found { get; set; } = found;
+	public int Found { get; set; }
 
 	/// <summary>
 	/// The number of branches hit.
 	/// </summary>
-	public int Hit { get; set; } = hit;
+	public int Hit { get; set; }
 
 	/// <summary>
 	/// Returns a string representation of this object.

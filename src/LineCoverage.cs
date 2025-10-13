@@ -3,25 +3,22 @@ namespace Belin.Lcov;
 /// <summary>
 /// Provides the coverage data of lines.
 /// </summary>
-/// <param name="found">The number of lines found.</param>
-/// <param name="hit">The number of lines hit.</param>
-/// <param name="data">The coverage data.</param>
-public sealed class LineCoverage(int found = 0, int hit = 0, IEnumerable<LineData>? data = null) {
+public sealed class LineCoverage {
 
 	/// <summary>
 	/// The coverage data.
 	/// </summary>
-	public IList<LineData> Data { get; set; } = [.. data ?? []];
+	public IList<LineData> Data { get; set; } = [];
 
 	/// <summary>
 	/// The number of lines found.
 	/// </summary>
-	public int Found { get; set; } = found;
+	public int Found { get; set; }
 
 	/// <summary>
 	/// The number of lines hit.
 	/// </summary>
-	public int Hit { get; set; } = hit;
+	public int Hit { get; set; }
 
 	/// <summary>
 	/// Returns a string representation of this object.

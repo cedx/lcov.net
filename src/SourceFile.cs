@@ -4,25 +4,22 @@ namespace Belin.Lcov;
 /// Provides the coverage data of a source file.
 /// </summary>
 /// <param name="path">The path to the source file.</param>
-/// <param name="functions">The function coverage.</param>
-/// <param name="branches">The branch coverage.</param>
-/// <param name="lines">The line coverage.</param>
-public sealed class SourceFile(string path, FunctionCoverage? functions = null, BranchCoverage? branches = null, LineCoverage? lines = null) {
+public sealed class SourceFile(string path) {
 
 	/// <summary>
 	/// The branch coverage.
 	/// </summary>
-	public BranchCoverage? Branches { get; set; } = branches;
+	public BranchCoverage? Branches { get; set; }
 
 	/// <summary>
 	/// The function coverage.
 	/// </summary>
-	public FunctionCoverage? Functions { get; set; } = functions;
+	public FunctionCoverage? Functions { get; set; }
 
 	/// <summary>
 	/// The line coverage.
 	/// </summary>
-	public LineCoverage? Lines { get; set; } = lines;
+	public LineCoverage? Lines { get; set; }
 
 	/// <summary>
 	/// The path to the source file.
