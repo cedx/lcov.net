@@ -43,7 +43,6 @@ public sealed record FunctionData(string FunctionName = "", int LineNumber = 0, 
 	/// <summary>
 	/// Returns a string representation of this object.
 	/// </summary>
-	/// <param name="asDefinition">Whether to return the function definition instead of its data.</param>
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() => ToString(false);
 
