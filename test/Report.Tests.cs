@@ -22,6 +22,8 @@ public sealed class ReportTests {
 	[TestMethod]
 	public void Parse() {
 		var report = Report.Parse(coverage);
+		AreEqual("Example", report.TestName);
+
 		HasCount(3, report.SourceFiles);
 		AreEqual("/home/cedx/lcov.net/fixture.cs", report.SourceFiles[0].Path);
 		AreEqual("/home/cedx/lcov.net/func1.cs", report.SourceFiles[1].Path);
