@@ -13,12 +13,12 @@ public sealed class BranchCoverage {
 	/// <summary>
 	/// The number of branches found.
 	/// </summary>
-	public int Found { get; set; }
+	public int Found { get; set => field = Math.Max(0, value); }
 
 	/// <summary>
 	/// The number of branches hit.
 	/// </summary>
-	public int Hit { get; set; }
+	public int Hit { get; set => field = Math.Max(0, value); }
 
 	/// <summary>
 	/// Returns a string representation of this object.
