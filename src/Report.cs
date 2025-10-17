@@ -35,8 +35,8 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 	/// <exception cref="FormatException">A parsing error occurred.</exception>
 	public static Report Parse(string coverage) {
 		var offset = 0;
-		var report = new Report(string.Empty);
-		var sourceFile = new SourceFile(path: string.Empty);
+		var report = new Report("");
+		var sourceFile = new SourceFile(path: "");
 
 		foreach (var line in NewLinePattern().Split(coverage)) {
 			offset++;
@@ -81,7 +81,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 				case Tokens.LineData:
 					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
 					sourceFile.Lines?.Data.Add(new() {
-						Checksum = data.Length >= 3 ? data[2] : string.Empty,
+						Checksum = data.Length >= 3 ? data[2] : "",
 						ExecutionCount = int.Parse(data[1]),
 						LineNumber = int.Parse(data[0])
 					});

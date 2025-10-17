@@ -10,7 +10,7 @@ public sealed class SourceFileTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
-		var sourceFile = new SourceFile(path: string.Empty);
+		var sourceFile = new SourceFile(path: "");
 		AreEqual("SF:\nend_of_record", sourceFile.ToString());
 
 		sourceFile = new SourceFile("/home/cedx/lcov.net/program.cs") { Branches = new(), Functions = new(), Lines = new() };

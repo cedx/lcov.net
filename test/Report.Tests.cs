@@ -50,8 +50,8 @@ public sealed class ReportTests {
 
 	[TestMethod, DisplayName("ToString")]
 	public void TestToString() {
-		var sourceFile = new SourceFile(path: string.Empty);
-		AreEqual(string.Empty, new Report(string.Empty).ToString());
+		var sourceFile = new SourceFile(path: "");
+		AreEqual("", new Report("").ToString());
 		AreEqual($"TN:LcovTest\n{sourceFile}", new Report("LcovTest", [sourceFile]).ToString());
 	}
 
