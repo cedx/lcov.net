@@ -47,6 +47,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 
 			var data = string.Join(':', parts[1..]).Split(',');
 			var token = parts[0];
+
 			switch (token) {
 				case Tokens.TestName:
 					if (string.IsNullOrWhiteSpace(report.TestName)) report.TestName = data[0];
