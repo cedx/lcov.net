@@ -82,17 +82,17 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 					}
 					break;
 
+				case Tokens.FunctionName:
+					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
+					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
+					break;
+
 				case Tokens.FunctionsFound when sourceFile.Functions is not null:
 					sourceFile.Functions.Found = int.Parse(data[0]);
 					break;
 
 				case Tokens.FunctionsHit when sourceFile.Functions is not null:
 					sourceFile.Functions.Hit = int.Parse(data[0]);
-					break;
-
-				case Tokens.FunctionName:
-					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
-					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
 					break;
 
 				case Tokens.LineData:
