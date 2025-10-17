@@ -47,6 +47,7 @@ public sealed class ReportTests {
 		HasCount(9, lines.Data);
 		AreEqual("5kX7OTfHFcjnS98fjeVqNA", lines.Data[0].Checksum);
 
+		Throws<FormatException>(() => Report.Parse("ZZ"));
 		Throws<FormatException>(() => Report.Parse("TN:Example"));
 	}
 
