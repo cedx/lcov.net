@@ -16,4 +16,4 @@ jobs:
         with:
           dotnet-version: 9
       - name: Run tests
-        run: ./invoke.ps1 Test
+        run: ./Invoke.ps1 Test
