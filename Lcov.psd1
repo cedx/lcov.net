@@ -6,12 +6,6 @@
 	CompanyName = "Cedric-Belin.fr"
 	Copyright = "© Cédric Belin"
 	Description = "Parse and format to LCOV your code coverage reports."
-	GUID = "ddf28139-1594-4134-bf2d-6b2cfcea90c3"
-
-	AliasesToExport = @()
-	CmdletsToExport = @()
-	FunctionsToExport = @()
-	VariablesToExport = @()
 
 	PrivateData = @{
 		PSData = @{
