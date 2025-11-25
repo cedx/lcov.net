@@ -4,6 +4,7 @@
 		<File Path=".gitattributes" />
 		<File Path=".gitignore" />
 		<File Path="Lcov.psd1" />
+		<File Path="PSModules.psd1" />
 	</Folder>
 	<Folder Name="/Documentation/">
 		<File Path="Authors.txt" />
@@ -18,7 +19,10 @@
 	<Folder Name="/Resources/">
 		<File Path="res/Lcov.info" />
 	</Folder>
-	<Folder Name="/Tools/">
+	<Folder Name="/Scripts/">
+		<File Path="Invoke.ps1" />
+	</Folder>
+	<Folder Name="/Scripts/Tools/">
 		<File Path="tool/Build.ps1" />
 		<File Path="tool/Clean.ps1" />
 		<File Path="tool/Default.ps1" />
