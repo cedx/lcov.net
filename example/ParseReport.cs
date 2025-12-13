@@ -12,6 +12,6 @@ try {
 		WriteIndented = true
 	}));
 }
-catch (FormatException error) {
-	Console.Error.WriteLine(error.Message);
+catch (FormatException e) {
+	Console.Error.WriteLine(e.Message);
 }
