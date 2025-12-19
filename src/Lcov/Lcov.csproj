@@ -21,6 +21,7 @@
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.Lcov</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>preview</LangVersion> <!-- TODO (.NET 10) Not needed! -->
 		<Nullable>enable</Nullable>
 		<OutDir>../../bin</OutDir>
 		<RootNamespace>Belin.Lcov</RootNamespace>
