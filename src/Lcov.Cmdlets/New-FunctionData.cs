@@ -16,7 +16,7 @@ public class NewFunctionDataCommand: Cmdlet {
 	/// The function name.
 	/// </summary>
 	[Parameter(Mandatory = true, Position = 0)]
-	public required string FunctionName { get; set; } 
+	public required string FunctionName { get; set; }
 
 	/// <summary>
 	/// The line number of the function start.
