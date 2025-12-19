@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<Company>Cedric-Belin.fr</Company>
+		<Copyright>© Cédric Belin</Copyright>
+		<Description>Parse and format to LCOV your code coverage reports.</Description>
+		<Product>LCOV Reports for .NET</Product>
+		<Version>2.0.0</Version>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>CedX</Authors>
+		<IncludeSymbols>true</IncludeSymbols>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
+		<PackageTags>coverage;formatter;lcov;parser;test;writer</PackageTags>
+		<RepositoryUrl>https://github.com/cedx/lcov.net.git</RepositoryUrl>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<AssemblyName>Belin.Lcov.Cmdlets</AssemblyName>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<OutDir>../../bin</OutDir>
+		<RootNamespace>Belin.Lcov.Cmdlets</RootNamespace>
+		<TargetFramework>net9.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="../../ReadMe.md" Pack="true" PackagePath="/" />
+		<PackageReference Include="System.Management.Automation" Version="7.5.*" />
+		<ProjectReference Include="../Lcov/Lcov.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="System.Management.Automation" />
+	</ItemGroup>
+</Project>
