@@ -1,6 +1,6 @@
 # LCOV Reports for .NET
 Parse and format [LCOV](https://github.com/linux-test-project/lcov) coverage reports,
-in [C#](https://learn.microsoft.com/en-us/dotnet/csharp).
+in [C#](https://learn.microsoft.com/en-us/dotnet/csharp) and [PowerShell](https://learn.microsoft.com/en-us/powershell).
 
 ## Documentation
 - [User guide](https://github.com/cedx/lcov.net/wiki)
