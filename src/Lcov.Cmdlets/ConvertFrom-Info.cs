@@ -27,7 +27,7 @@ public class ConvertFromInfoCommand: PSCmdlet {
 			: Path.SelectMany(path => GetResolvedProviderPathFromPSPath(path, out _));
 
 		foreach (var path in paths)
-			try { WriteObject(File.ReadAllText(path)); }
+			try { WriteObject(Report.Parse(File.ReadAllText(path))); }
 			catch (FormatException e) {
 				WriteError(new ErrorRecord(e, "ConvertFromInfo:FormatException", ErrorCategory.InvalidData, null));
 				WriteObject(null);
