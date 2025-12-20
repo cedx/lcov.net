@@ -3,6 +3,6 @@ $ErrorActionPreference = "Stop"
 $PSNativeCommandUseErrorActionPreference = $true
 Set-StrictMode -Version Latest
 
-Import-Module "$PSScriptRoot/Akismet.psd1"
+Import-Module "$PSScriptRoot/Lcov.psd1"
 try { <# Insert the command to be debugged here. #> }
 catch { Write-Error "$_`n$($_.ScriptStackTrace)" }
