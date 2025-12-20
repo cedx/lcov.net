@@ -15,6 +15,7 @@
 	VariablesToExport = @()
 
 	CmdletsToExport = @(
+		"ConvertFrom-Info"
 		"New-BranchCoverage"
 		"New-BranchData"
 		"New-FunctionCoverage"
