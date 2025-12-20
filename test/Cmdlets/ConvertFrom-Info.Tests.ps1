@@ -1,3 +1,5 @@
+using namespace System.Diagnostics.CodeAnalysis
+
 <#
 .SYNOPSIS
 	Tests the features of the `ConvertFrom-Info` cmdlet.
@@ -5,6 +7,7 @@
 Describe "ConvertFrom-Info" {
 	BeforeAll {
 		Import-Module "$PSScriptRoot/../../Lcov.psd1"
+		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
 		$report = ConvertFrom-LcovInfo -LiteralPath "$PSScriptRoot/../../res/Lcov.info"
 	}
 

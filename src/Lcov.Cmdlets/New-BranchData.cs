@@ -23,7 +23,7 @@ public class NewBranchDataCommand: Cmdlet {
 	/// </summary>
 	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int LineNumber { get; set; }
-	
+
 	/// <summary>
 	/// A number indicating how often this branch was taken.
 	/// </summary>

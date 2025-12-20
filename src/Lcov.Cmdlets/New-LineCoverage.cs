@@ -11,7 +11,7 @@ public class NewLineCoverageCommand: Cmdlet {
 	/// </summary>
 	[Parameter]
 	public LineData[] Data { get; set; } = [];
-		
+
 	/// <summary>
 	/// The number of lines found.
 	/// </summary>

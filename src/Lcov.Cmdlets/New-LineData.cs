@@ -11,7 +11,7 @@ public class NewLineDataCommand: Cmdlet {
 	/// </summary>
 	[Parameter]
 	public string Checksum { get; set; } = "";
-		
+
 	/// <summary>
 	/// The execution count.
 	/// </summary>

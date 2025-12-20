@@ -5,7 +5,7 @@ namespace Belin.Lcov.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsCommon.New, "FunctionData"), OutputType(typeof(FunctionData))]
 public class NewFunctionDataCommand: Cmdlet {
-		
+
 	/// <summary>
 	/// The execution count.
 	/// </summary>

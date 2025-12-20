@@ -11,7 +11,7 @@ public class NewFunctionCoverageCommand: Cmdlet {
 	/// </summary>
 	[Parameter]
 	public FunctionData[] Data { get; set; } = [];
-	
+
 	/// <summary>
 	/// The number of functions found.
 	/// </summary>

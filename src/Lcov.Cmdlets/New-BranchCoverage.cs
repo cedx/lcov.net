@@ -5,7 +5,7 @@ namespace Belin.Lcov.Cmdlets;
 /// </summary>
 [Cmdlet(VerbsCommon.New, "BranchCoverage"), OutputType(typeof(BranchCoverage))]
 public class NewBranchCoverageCommand: Cmdlet {
-	
+
 	/// <summary>
 	/// The coverage data.
 	/// </summary>

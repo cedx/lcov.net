@@ -11,7 +11,7 @@ public class NewSourceFileCommand: Cmdlet {
 	/// </summary>
 	[Parameter]
 	public BranchCoverage? Branches { get; set; }
-	
+
 	/// <summary>
 	/// The function coverage.
 	/// </summary>
