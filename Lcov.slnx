@@ -17,6 +17,10 @@
 		<File Path="example/FormatReport.cs" />
 		<File Path="example/ParseReport.cs" />
 	</Folder>
+	<Folder Name="/Examples/Cmdlets/">
+		<File Path="example/Cmdlets/ConvertFrom-Info.ps1" />
+		<File Path="example/Cmdlets/New-Report.ps1" />
+	</Folder>
 	<Folder Name="/Resources/">
 		<File Path="res/Lcov.info" />
 	</Folder>
