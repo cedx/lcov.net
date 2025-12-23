@@ -34,14 +34,14 @@ public class ConvertFromInfoCommand: PSCmdlet {
 		else script.AddParameter(nameof(Path), Path);
 		if (Recurse) script.AddParameter(nameof(Recurse));
 
-		var paths = script.Invoke<FileInfo>();
+		var files = script.Invoke<FileInfo>();
 		if (script.HadErrors) {
-			WriteError(script.Streams.Error.First());
+			ThrowTerminatingError(script.Streams.Error.First());
 			return;
 		}
 
-		foreach (var path in paths) {
-			try { WriteObject(Report.Parse(File.ReadAllText(path.FullName))); }
+		foreach (var file in files) {
+			try { WriteObject(Report.Parse(File.ReadAllText(file.FullName))); }
 			catch (FormatException e) {
 				WriteError(new ErrorRecord(e, "ConvertFromInfo:FormatException", ErrorCategory.InvalidData, null));
 				WriteObject(null);

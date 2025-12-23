@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.2.0](https://github.com/cedx/lcov.net/compare/v2.1.0...v2.2.0)
+- Added the `-Recurse` parameter to the `ConvertFrom-Info` cmdlet.
+
 ## Version [2.1.0](https://github.com/cedx/lcov.net/compare/v2.0.0...v2.1.0)
 - Added [PowerShell](https://learn.microsoft.com/en-us/powershell) cmdlets.
 
