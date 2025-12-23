@@ -13,16 +13,16 @@ public class ConvertFromInfoCommand: PSCmdlet {
 	public required string[] LiteralPath { get; set; }
 
 	/// <summary>
-	/// Value indicating whether to process the input path recursively.
-	/// </summary>
-	[Parameter]
-	public SwitchParameter Recurse { get; set; }
-
-	/// <summary>
 	/// The path to the LCOV file to convert.
 	/// </summary>
 	[Parameter(Mandatory = true, ParameterSetName = nameof(Path), Position = 0, ValueFromPipeline = true), SupportsWildcards]
 	public required string[] Path { get; set; }
+
+	/// <summary>
+	/// Value indicating whether to process the input path recursively.
+	/// </summary>
+	[Parameter]
+	public SwitchParameter Recurse { get; set; }
 
 	/// <summary>
 	/// Performs execution of this command.
