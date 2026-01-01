@@ -8,7 +8,7 @@ Describe "ConvertFrom-Info" {
 	BeforeAll {
 		Import-Module "$PSScriptRoot/../../Lcov.psd1"
 		[SuppressMessage("PSUseDeclaredVarsMoreThanAssignments", "")]
-		$report = ConvertFrom-LcovInfo "$PSScriptRoot/../../res/*.info"
+		$report = ConvertFrom-LcovInfo "$PSScriptRoot/../../res" -Filter "*.info"
 	}
 
 	It "should have a test name" {
