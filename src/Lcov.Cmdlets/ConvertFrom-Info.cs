@@ -48,12 +48,11 @@ public class ConvertFromInfoCommand: PSCmdlet {
 			return;
 		}
 
-		foreach (var file in files) {
+		foreach (var file in files)
 			try { WriteObject(Report.Parse(File.ReadAllText(file.FullName))); }
 			catch (FormatException e) {
 				WriteError(new ErrorRecord(e, "ConvertFrom-Info:FormatException", ErrorCategory.InvalidData, null));
 				WriteObject(null);
 			}
-		}
 	}
 }
