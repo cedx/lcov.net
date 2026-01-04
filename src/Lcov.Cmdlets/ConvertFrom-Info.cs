@@ -34,8 +34,7 @@ public class ConvertFromInfoCommand: PSCmdlet {
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() {
-		using var script = PowerShell.Create(RunspaceMode.CurrentRunspace);
-		script.AddCommand("Get-ChildItem");
+		using var script = PowerShell.Create(RunspaceMode.CurrentRunspace).AddCommand("Get-ChildItem");
 		if (ParameterSetName == nameof(LiteralPath)) script.AddParameter(nameof(LiteralPath), LiteralPath);
 		else script.AddParameter(nameof(Path), Path);
 
