@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.3.0](https://github.com/cedx/lcov.net/compare/v2.2.0...v2.3.0)
+- Added the `-Filter` parameter to the `ConvertFrom-Info` cmdlet.
+
 ## Version [2.2.0](https://github.com/cedx/lcov.net/compare/v2.1.0...v2.2.0)
 - Added the `-Recurse` parameter to the `ConvertFrom-Info` cmdlet.
 
