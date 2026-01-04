@@ -52,7 +52,7 @@ public class ConvertFromInfoCommand: PSCmdlet {
 		foreach (var file in files) {
 			try { WriteObject(Report.Parse(File.ReadAllText(file.FullName))); }
 			catch (FormatException e) {
-				WriteError(new ErrorRecord(e, "ConvertFromInfo:FormatException", ErrorCategory.InvalidData, null));
+				WriteError(new ErrorRecord(e, "ConvertFromInfo:Format", ErrorCategory.InvalidData, null));
 				WriteObject(null);
 			}
 		}
