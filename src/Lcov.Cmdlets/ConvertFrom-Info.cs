@@ -10,7 +10,7 @@ public class ConvertFromInfoCommand: PSCmdlet {
 	/// A pattern used to filter the list of files to be processed.
 	/// </summary>
 	[Parameter]
-	public string Filter { get; set; } = "";
+	public string? Filter { get; set; }
 
 	/// <summary>
 	/// The path to the LCOV file to convert.
@@ -39,7 +39,7 @@ public class ConvertFromInfoCommand: PSCmdlet {
 		else script.AddParameter(nameof(Path), Path);
 
 		script.AddParameter("File");
-		if (Filter.Length > 0) script.AddParameter(nameof(Filter), Filter);
+		if (!string.IsNullOrWhiteSpace(Filter)) script.AddParameter(nameof(Filter), Filter);
 		if (Recurse) script.AddParameter(nameof(Recurse));
 
 		var files = script.Invoke<FileInfo>();

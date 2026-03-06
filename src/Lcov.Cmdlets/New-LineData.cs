@@ -10,7 +10,7 @@ public class NewLineDataCommand: Cmdlet {
 	/// The data checksum.
 	/// </summary>
 	[Parameter]
-	public string Checksum { get; set; } = "";
+	public string? Checksum { get; set; }
 
 	/// <summary>
 	/// The execution count.
@@ -28,7 +28,7 @@ public class NewLineDataCommand: Cmdlet {
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() => WriteObject(new LineData {
-		Checksum = Checksum,
+		Checksum = Checksum ?? "",
 		ExecutionCount = ExecutionCount,
 		LineNumber = LineNumber
 	});
