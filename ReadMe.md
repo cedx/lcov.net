@@ -3,7 +3,7 @@ Parse and format [LCOV](https://github.com/linux-test-project/lcov) coverage rep
 in [C#](https://learn.microsoft.com/en-us/dotnet/csharp) and [PowerShell](https://learn.microsoft.com/en-us/powershell).
 
 ## Documentation
-- [User guide](https://github.com/cedx/lcov.net/wiki)
+- [User guide](https://github.com/cedx/lcov.net/tree/main/docs)
 - [Examples](https://github.com/cedx/lcov.net/tree/main/example)
 
 ## Development
