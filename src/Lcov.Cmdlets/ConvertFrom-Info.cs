@@ -50,9 +50,6 @@ public class ConvertFromInfoCommand: PSCmdlet {
 
 		foreach (var file in files)
 			try { WriteObject(Report.Parse(File.ReadAllText(file.FullName))); }
-			catch (FormatException e) {
-				WriteError(new ErrorRecord(e, "ConvertFrom-Info:FormatException", ErrorCategory.InvalidData, null));
-				WriteObject(null);
-			}
+			catch (FormatException e) { WriteError(new ErrorRecord(e, "ConvertFrom-Info:FormatException", ErrorCategory.InvalidData, file)); }
 	}
 }
