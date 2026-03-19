@@ -21,11 +21,10 @@
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
 		<AssemblyName>Belin.Lcov</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<LangVersion>preview</LangVersion> <!-- TODO (.NET 10) Not needed! -->
 		<Nullable>enable</Nullable>
 		<OutDir>../../bin</OutDir>
 		<RootNamespace>Belin.Lcov</RootNamespace>
-		<TargetFramework>net9.0</TargetFramework>
+		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
