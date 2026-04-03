@@ -10,7 +10,7 @@ Install the latest version of **LCOV Reports for .NET** with your package manage
 dotnet add package Belin.Lcov
 
 # PowerShell with PSResourceGet
-Install-PSResource Lcov
+Install-PSResource Belin.Lcov
 ```
 
 For detailed instructions, see the [installation guide](Installation.md).

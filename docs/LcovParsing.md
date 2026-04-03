@@ -32,7 +32,7 @@ The `ConvertFrom-LcovInfo` cmdlet parses a [LCOV](https://github.com/linux-test-
 and creates a `Report` instance giving detailed information about this coverage report:
 
 ```pwsh
-Import-Module Lcov
+Import-Module Belin.Lcov
 
 $report = ConvertFrom-LcovInfo "/path/to/lcov.info"
 Write-Output "The coverage report contains $($report.SourceFiles.Count) source files:"

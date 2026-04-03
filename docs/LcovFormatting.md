@@ -30,7 +30,7 @@ Console.WriteLine(report);
 Each `New-Lcov...` cmdlet provided by this module returns an object having a dedicated `ToString()` method returning the corresponding data formatted as [LCOV](https://github.com/linux-test-project/lcov) string. All you have to do is to create the adequate structure using these different cmdlets, and to export the final result:
 
 ```pwsh
-Import-Module Lcov
+Import-Module Belin.Lcov
 
 $functionCoverage = New-LcovFunctionCoverage -Found 1 -Hit 1
 $lineCoverage = New-LcovLineCoverage -Found 2 -Hit 1 -Data @(

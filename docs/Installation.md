@@ -36,12 +36,12 @@ using Belin.Lcov;
 From a command prompt, run:
 
 ```powershell
-Install-PSResource -Name Lcov -Repository PSGallery
+Install-PSResource Belin.Lcov
 ```
 
 ### 2. Import it
 Now in your [PowerShell](https://learn.microsoft.com/en-us/powershell) code, you can use:
 
 ```powershell
-Import-Module -Name Lcov
+Import-Module Belin.Lcov
 ```
