@@ -36,7 +36,7 @@ using Belin.Lcov;
 From a command prompt, run:
 
 ```powershell
-Install-PSResource Belin.Lcov
+Install-PSResource Belin.Lcov -Repository PSGallery
 ```
 
 ### 2. Import it
