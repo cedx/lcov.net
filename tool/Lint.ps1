@@ -1,5 +1,4 @@
 "Performing the static analysis of source code..."
 Import-Module PSScriptAnalyzer
-Invoke-ScriptAnalyzer $PSScriptRoot -Recurse
-Invoke-ScriptAnalyzer test -Recurse
+$PSScriptRoot, "test" | Invoke-ScriptAnalyzer -Recurse
 Test-ModuleManifest Lcov.psd1 | Out-Null
