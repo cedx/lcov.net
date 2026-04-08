@@ -4,7 +4,7 @@
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>Parse and format to LCOV your code coverage reports.</Description>
 		<Product>LCOV Reports for .NET</Product>
-		<Version>2.3.0</Version>
+		<Version>3.0.0</Version>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -22,12 +22,12 @@
 		<AssemblyName>Belin.Lcov</AssemblyName>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
-		<OutDir>../../bin</OutDir>
+		<OutDir>../bin</OutDir>
 		<RootNamespace>Belin.Lcov</RootNamespace>
 		<TargetFramework>net10.0</TargetFramework>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="../../ReadMe.md" Pack="true" PackagePath="" />
+		<None Include="../ReadMe.md" Pack="true" PackagePath="" />
 	</ItemGroup>
 </Project>
