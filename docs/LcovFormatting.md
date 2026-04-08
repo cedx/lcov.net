@@ -44,7 +44,7 @@ Write-Output $report.ToString()
 ```
 
 > [!TIP]
-> See the [source code](https://github.com/cedx/lcov.net/tree/main/src/Lcov.Cmdlets) of this module
+> See the [source code](https://github.com/cedx/lcov.net/tree/main/src/Cmdlets) of this module
 > for detailed information on the available cmdlets.
 
 ## Output

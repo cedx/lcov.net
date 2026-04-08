@@ -10,10 +10,10 @@
 	GUID = "158416ed-ea32-4bcf-ac5d-8c555ad917e5"
 
 	AliasesToExport = @()
-	FunctionsToExport = @()
+	CmdletsToExport = @()
 	VariablesToExport = @()
 
-	CmdletsToExport = @(
+	FunctionsToExport = @(
 		"ConvertFrom-Info"
 		"New-BranchCoverage"
 		"New-BranchData"
@@ -23,6 +23,18 @@
 		"New-LineData"
 		"New-Report"
 		"New-SourceFile"
+	)
+
+	NestedModules = @(
+		"src/Cmdlets/ConvertFrom-Info.psm1"
+		"src/Cmdlets/New-BranchCoverage.psm1"
+		"src/Cmdlets/New-BranchData.psm1"
+		"src/Cmdlets/New-FunctionCoverage.psm1"
+		"src/Cmdlets/New-FunctionData.psm1"
+		"src/Cmdlets/New-LineCoverage.psm1"
+		"src/Cmdlets/New-LineData.psm1"
+		"src/Cmdlets/New-Report.psm1"
+		"src/Cmdlets/New-SourceFile.psm1"
 	)
 
 	RequiredAssemblies = @(
