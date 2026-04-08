@@ -1,4 +1,5 @@
 using namespace Belin.Lcov
+using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -9,6 +10,7 @@ using namespace Belin.Lcov
 function New-FunctionData {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.FunctionData])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The function name.
 		[Parameter(Mandatory, Position = 0)]

@@ -1,4 +1,5 @@
 using namespace Belin.Lcov
+using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -9,6 +10,7 @@ using namespace Belin.Lcov
 function New-LineData {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.LineData])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The data checksum.
 		[ValidateNotNull()]

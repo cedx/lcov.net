@@ -1,4 +1,5 @@
 using namespace Belin.Lcov
+using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -9,6 +10,7 @@ using namespace Belin.Lcov
 function New-FunctionCoverage {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.FunctionCoverage])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The coverage data.
 		[ValidateNotNull()]
