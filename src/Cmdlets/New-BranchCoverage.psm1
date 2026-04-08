@@ -1,0 +1,31 @@
+using namespace Belin.Lcov
+
+<#
+.SYNOPSIS
+	Creates a new branch coverage.
+.OUTPUTS
+	The newly created branch coverage.
+#>
+function New-BranchCoverage {
+	[CmdletBinding()]
+	[OutputType([Belin.Lcov.BranchCoverage])]
+	param (
+		# The coverage data.
+		[ValidateNotNull()]
+		[BranchData[]] $Data = @(),
+
+		# The number of branches found.
+		[ValidateRange("NonNegative")]
+		[int] $Found,
+
+		# The number of branches hit.
+		[ValidateRange("NonNegative")]
+		[int] $Hit
+	)
+
+	[BranchCoverage]@{
+		Data = $Data
+		Found = $Found
+		Hit = $Hit
+	}
+}
