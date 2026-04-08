@@ -23,7 +23,7 @@ Console.WriteLine(report);
 ```
 
 > [!TIP]
-> See the [source code](https://github.com/cedx/lcov.net/tree/main/src/Lcov) of this library
+> See the [source code](https://github.com/cedx/lcov.net/tree/main/src) of this library
 > for detailed information on the available classes.
 
 ## PowerShell
