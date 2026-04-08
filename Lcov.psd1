@@ -1,8 +1,7 @@
 @{
 	DefaultCommandPrefix = "Lcov"
-	ModuleVersion = "2.3.0"
+	ModuleVersion = "3.0.0"
 	PowerShellVersion = "7.6"
-	RootModule = "bin/Belin.Lcov.Cmdlets.dll"
 
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"
