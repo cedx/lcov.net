@@ -25,9 +25,5 @@ function New-FunctionData {
 		[int] $LineNumber
 	)
 
-	[FunctionData]@{
-		ExecutionCount = $ExecutionCount
-		FunctionName = $FunctionName
-		LineNumber = $LineNumber
-	}
+	[FunctionData]::new($FunctionName, $LineNumber, $ExecutionCount)
 }

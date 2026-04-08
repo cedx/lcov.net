@@ -29,10 +29,5 @@ function New-BranchData {
 		[int] $Taken
 	)
 
-	[BranchData]@{
-		BlockNumber = $BlockNumber
-		BranchNumber = $BranchNumber
-		LineNumber = $LineNumber
-		Taken = $Taken
-	}
+	[BranchData]::new($LineNumber, $BlockNumber, $BranchNumber, $Taken)
 }

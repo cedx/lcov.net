@@ -25,9 +25,5 @@ function New-LineData {
 		[int] $LineNumber
 	)
 
-	[LineData]@{
-		Checksum = $Checksum
-		ExecutionCount = $ExecutionCount
-		LineNumber = $LineNumber
-	}
+	[LineData]::new($LineNumber, $ExecutionCount, $Checksum)
 }
