@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [3.0.0](https://github.com/cedx/lcov.net/compare/v2.3.0...v3.0.0)
+- Breaking change: raised the required target framework.
+- Ported the [C#](https://learn.microsoft.com/en-us/dotnet/csharp) cmdlets to [PowerShell](https://learn.microsoft.com/en-us/powershell).
+
 ## Version [2.3.0](https://github.com/cedx/lcov.net/compare/v2.2.0...v2.3.0)
 - Added the `-Filter` parameter to the `ConvertFrom-Info` cmdlet.
 
