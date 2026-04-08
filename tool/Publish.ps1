@@ -15,14 +15,13 @@ git push origin "v$version"
 
 $output = "var/NuGet"
 dotnet pack --output $output
-Remove-Item "$output/*.Cmdlets.*"
 Get-Item "$output/*.nupkg" | ForEach-Object { dotnet nuget push $_ --api-key $Env:NUGET_API_KEY --source NuGet }
 
 $output = "var/PSModule"
 New-Item $output/bin -ItemType Directory | Out-Null
 Copy-Item Lcov.psd1 $output/Belin.Lcov.psd1
 Copy-Item *.md $output
-Copy-Item $module.RootModule $output/bin
+Remove-Item $output/src/*.cs*, $output/src/obj -Recurse
 $module.RequiredAssemblies | Copy-Item -Destination $output/bin
 
 $output = "var/PSGallery"
