@@ -45,4 +45,8 @@ Describe "ConvertFrom-Info" {
 		$lines.Data | Should -HaveCount 9
 		$lines.Data[0].Checksum | Should -BeExactly "5kX7OTfHFcjnS98fjeVqNA"
 	}
+
+	It "should throw if the report has an invalid format" {
+		{ ConvertFrom-LcovInfo $PSCommandPath -ErrorAction Stop } | Should -Throw
+	}
 }

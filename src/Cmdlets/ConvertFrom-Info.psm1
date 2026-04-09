@@ -34,6 +34,9 @@ function ConvertFrom-Info {
 		if ($Filter) { $parameters.Filter = $Filter }
 
 		$files = $PSCmdlet.ParameterSetName -eq "LiteralPath" ? (Get-ChildItem -LiteralPath $LiteralPath @parameters) : (Get-ChildItem $Path @parameters)
-		foreach ($file in $files) { [Report]::Parse((Get-Content $file.FullName -Raw)) }
+		foreach ($file in $files) {
+			try { [Report]::Parse((Get-Content $file.FullName -Raw)) }
+			catch [FormatException] { Write-Error $_.Exception }
+		}
 	}
 }
