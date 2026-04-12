@@ -10,7 +10,7 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-FunctionCoverage {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.FunctionCoverage])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
+	[SuppressMessage("PSUseOutputTypeCorrectly", "")]
 	param (
 		# The coverage data.
 		[ValidateNotNull()]

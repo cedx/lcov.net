@@ -1,5 +1,4 @@
 using namespace Belin.Lcov
-using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -10,7 +9,6 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-BranchData {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.BranchData])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The block number.
 		[ValidateRange("NonNegative")]

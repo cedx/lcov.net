@@ -1,5 +1,4 @@
 using namespace Belin.Lcov
-using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -10,7 +9,6 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-Report {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.Report])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The test name.
 		[Parameter(Mandatory, Position = 0)]

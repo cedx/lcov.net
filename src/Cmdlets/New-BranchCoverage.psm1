@@ -10,7 +10,7 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-BranchCoverage {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.BranchCoverage])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
+	[SuppressMessage("PSUseOutputTypeCorrectly", "")]
 	param (
 		# The coverage data.
 		[ValidateNotNull()]

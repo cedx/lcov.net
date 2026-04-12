@@ -1,5 +1,4 @@
 using namespace Belin.Lcov
-using namespace System.Diagnostics.CodeAnalysis
 
 <#
 .SYNOPSIS
@@ -10,7 +9,6 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-SourceFile {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.SourceFile])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The path to the source file.
 		[Parameter(Mandatory, Position = 0)]

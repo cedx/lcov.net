@@ -10,7 +10,7 @@ using namespace System.Diagnostics.CodeAnalysis
 function New-LineCoverage {
 	[CmdletBinding()]
 	[OutputType([Belin.Lcov.LineCoverage])]
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
+	[SuppressMessage("PSUseOutputTypeCorrectly", "")]
 	param (
 		# The coverage data.
 		[ValidateNotNull()]
