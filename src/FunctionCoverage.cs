@@ -25,7 +25,7 @@ public sealed class FunctionCoverage {
 	/// </summary>
 	/// <returns>The string representation of this object.</returns>
 	public override string ToString() => string.Join('\n', [
-		.. Data.Select(item => $"{item.ToString(asDefinition: true)}\n{item.ToString(asDefinition: false)}"),
+		.. Data.Select(item => item.ToString()),
 		$"{Tokens.FunctionsFound}:{Found}",
 		$"{Tokens.FunctionsHit}:{Hit}"
 	]);
