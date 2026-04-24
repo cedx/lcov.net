@@ -1,6 +1,7 @@
 namespace Belin.Lcov;
 
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 /// <summary>
@@ -36,14 +37,14 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 	public static Report Parse(string coverage) {
 		var offset = 0;
 		var report = new Report("");
-		var sourceFile = new SourceFile(path: "");
+		var sourceFile = new SourceFile("") { Branches = new(), Functions = new(), Lines = new() };
 
 		foreach (var line in NewLinePattern().Split(coverage)) {
 			offset++;
 			if (string.IsNullOrWhiteSpace(line)) continue;
 
 			var parts = line.Trim().Split(':');
-			if (parts.Length < 2 && parts[0] != Tokens.EndOfRecord) throw new FormatException($"Invalid token format at line {offset}.");
+			if (parts.Length < 2 && parts[0] != Tokens.EndOfRecord) throw new FormatException($"Invalid token format at line #{offset}.");
 
 			var data = string.Join(':', parts[1..]).Split(',');
 			var token = parts[0];
@@ -56,19 +57,19 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 				case Tokens.BranchData:
 					if (data.Length < 4) throw new FormatException($"Invalid branch data at line #{offset}.");
 					sourceFile.Branches?.Data.Add(new() {
-						BlockNumber = int.Parse(data[1]),
-						BranchNumber = int.Parse(data[2]),
-						LineNumber = int.Parse(data[0]),
-						Taken = data[3] == "-" ? 0 : int.Parse(data[3])
+						BlockNumber = int.Parse(data[1], NumberStyles.None),
+						BranchNumber = int.Parse(data[2], NumberStyles.None),
+						LineNumber = int.Parse(data[0], NumberStyles.None),
+						Taken = data[3] == "-" ? 0 : int.Parse(data[3], NumberStyles.None)
 					});
 					break;
 
-				case Tokens.BranchesFound when sourceFile.Branches is not null:
-					sourceFile.Branches.Found = int.Parse(data[0]);
+				case Tokens.BranchesFound:
+					sourceFile.Branches?.Found = int.Parse(data[0], NumberStyles.None);
 					break;
 
-				case Tokens.BranchesHit when sourceFile.Branches is not null:
-					sourceFile.Branches.Hit = int.Parse(data[0]);
+				case Tokens.BranchesHit:
+					sourceFile.Branches?.Hit = int.Parse(data[0], NumberStyles.None);
 					break;
 
 				case Tokens.FunctionData:
@@ -76,7 +77,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 					if (sourceFile.Functions is not null) {
 						var items = sourceFile.Functions.Data;
 						for (var index = 0; index < items.Count; index++) if (items[index].FunctionName == data[1]) {
-							items[index] = items[index] with { ExecutionCount = int.Parse(data[0]) };
+							items[index] = items[index] with { ExecutionCount = int.Parse(data[0], NumberStyles.None) };
 							break;
 						}
 					}
@@ -84,32 +85,32 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 
 				case Tokens.FunctionName:
 					if (data.Length < 2) throw new FormatException($"Invalid function name at line #{offset}.");
-					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0]) });
+					sourceFile.Functions?.Data.Add(new() { FunctionName = data[1], LineNumber = int.Parse(data[0], NumberStyles.None) });
 					break;
 
-				case Tokens.FunctionsFound when sourceFile.Functions is not null:
-					sourceFile.Functions.Found = int.Parse(data[0]);
+				case Tokens.FunctionsFound:
+					sourceFile.Functions?.Found = int.Parse(data[0], NumberStyles.None);
 					break;
 
-				case Tokens.FunctionsHit when sourceFile.Functions is not null:
-					sourceFile.Functions.Hit = int.Parse(data[0]);
+				case Tokens.FunctionsHit:
+					sourceFile.Functions?.Hit = int.Parse(data[0], NumberStyles.None);
 					break;
 
 				case Tokens.LineData:
 					if (data.Length < 2) throw new FormatException($"Invalid line data at line #{offset}.");
 					sourceFile.Lines?.Data.Add(new() {
 						Checksum = data.Length >= 3 ? data[2] : "",
-						ExecutionCount = int.Parse(data[1]),
-						LineNumber = int.Parse(data[0])
+						ExecutionCount = int.Parse(data[1], NumberStyles.None),
+						LineNumber = int.Parse(data[0], NumberStyles.None)
 					});
 					break;
 
-				case Tokens.LinesFound when sourceFile.Lines is not null:
-					sourceFile.Lines.Found = int.Parse(data[0]);
+				case Tokens.LinesFound:
+					sourceFile.Lines?.Found = int.Parse(data[0], NumberStyles.None);
 					break;
 
-				case Tokens.LinesHit when sourceFile.Lines is not null:
-					sourceFile.Lines.Hit = int.Parse(data[0]);
+				case Tokens.LinesHit:
+					sourceFile.Lines?.Hit = int.Parse(data[0], NumberStyles.None);
 					break;
 
 				case Tokens.SourceFile:
@@ -121,7 +122,7 @@ public partial class Report(string testName, IEnumerable<SourceFile>? sourceFile
 					break;
 
 				default:
-					throw new FormatException($"Unknown token at line {offset}.");
+					throw new FormatException($"Unknown token at line #{offset}.");
 			}
 		}
 
