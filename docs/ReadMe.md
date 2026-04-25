@@ -6,7 +6,7 @@ in [C#](https://learn.microsoft.com/en-us/dotnet/csharp).
 Install the latest version of **LCOV Reports for .NET** with [NuGet](https://www.nuget.org) package manager:
 
 ```shell
-dotnet add package Belin.Lcov
+dotnet package add Belin.Lcov
 ```
 
 For detailed instructions, see the [installation guide](Installation.md).

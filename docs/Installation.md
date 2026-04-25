@@ -17,7 +17,7 @@ dotnet --version
 From a command prompt, run:
 
 ```shell
-dotnet add package Belin.Lcov
+dotnet package add Belin.Lcov
 ```
 
 ### 2. Import it
