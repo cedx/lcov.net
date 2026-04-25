@@ -1,5 +1,4 @@
 using Belin.Lcov;
-using System;
 
 // Formats coverage data as LCOV report.
 var lineData = new[] {

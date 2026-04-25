@@ -6,7 +6,6 @@ All you have to do is to create the adequate structure using these different cla
 
 ```cs
 using Belin.Lcov;
-using System;
 
 var lineData = new[] {
   new LineData { LineNumber = 6, ExecutionCount = 2, Checksum = "PF4Rz2r7RTliO9u6bZ7h6g" },

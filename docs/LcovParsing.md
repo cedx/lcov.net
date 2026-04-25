@@ -6,7 +6,6 @@ and creates a `Report` instance giving detailed information about this coverage 
 
 ```cs
 using Belin.Lcov;
-using System;
 using System.IO;
 using System.Text.Json;
 
